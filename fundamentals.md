@@ -12,6 +12,7 @@
     - [Understanding availability](https://docs.aws.amazon.com/whitepapers/latest/availability-and-beyond-improving-resilience/understanding-availability.html) 
 - Resiliency
     - [How to verify resiliancy of a cloud-native application](https://www.ibm.com/blog/a-four-step-approach-to-verifying-the-resiliency-of-cloud-native-applications/)
+    - [Application Reliliency Patterns](https://learn.microsoft.com/en-us/dotnet/architecture/cloud-native/application-resiliency-patterns)
 - Fault Tolerance
 - Performance
 - Maintenance
