@@ -63,3 +63,5 @@ Know more about Caching, Cache Hit, Cache Miss, Cache Invalidation Strategy
 - [Sequence Diagrams] - TODO , Lucide Chart we can use to create sequence diagrams [Sequence daigram with Lucid](https://www.youtube.com/watch?v=pCK6prSq8aw).
 - [UML Diagrams]
 - []
+
+## [Some Goof Engineering Blogs](https://interviewready.io/blog)
