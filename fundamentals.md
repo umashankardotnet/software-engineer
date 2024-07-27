@@ -3,7 +3,7 @@
 - [Cloud native - Microsoft](https://learn.microsoft.com/en-us/dotnet/architecture/cloud-native/definition)
 - [Cloud native - AWS](https://aws.amazon.com/what-is/cloud-native/)
 - [What is System Design](https://www.youtube.com/watch?v=quLrc3PbuIw)
-- [SPOF](https://en.wikipedia.org/wiki/Single_point_of_failure)
+- [SPOF](https://www.youtube.com/watch?v=-BOysyYErLY)
 - [Scalability](https://systemdesignprep.com/scalability)
     - [Architecting for Reliable Scalability](https://aws.amazon.com/blogs/architecture/architecting-for-reliable-scalability/) 
 - [Reliability](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/reliability.html)
