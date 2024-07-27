@@ -1,10 +1,8 @@
 # [Refer from this , By Ashish](https://github.com/ashishps1/awesome-system-design-resources)
 # Fundamentals of System Design
-## Cloud Native
 - [Cloud native - Microsoft](https://learn.microsoft.com/en-us/dotnet/architecture/cloud-native/definition)
 - [Cloud native - AWS](https://aws.amazon.com/what-is/cloud-native/)
-## What is System Design
-## Characteristics of System Design or Non-Functional Requirements
+- [What is System Design](https://www.youtube.com/watch?v=quLrc3PbuIw)
 - [SPOF](https://en.wikipedia.org/wiki/Single_point_of_failure)
 - [Scalability](https://systemdesignprep.com/scalability)
     - [Architecting for Reliable Scalability](https://aws.amazon.com/blogs/architecture/architecting-for-reliable-scalability/) 
