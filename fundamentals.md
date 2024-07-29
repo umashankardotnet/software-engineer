@@ -9,7 +9,8 @@
     - [Architecting for Reliable Scalability](https://aws.amazon.com/blogs/architecture/architecting-for-reliable-scalability/)
     - [Scalability - optional](https://blog.algomaster.io/p/scalability)
 - [Reliability](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/reliability.html)
-- High Availability
+- Availability
+    - [Availability Video](https://www.youtube.com/watch?v=LdvduBxZRLs)
     - [Understanding availability](https://docs.aws.amazon.com/whitepapers/latest/availability-and-beyond-improving-resilience/understanding-availability.html) 
 - Resiliency
     - [How to verify resiliancy of a cloud-native application](https://www.ibm.com/blog/a-four-step-approach-to-verifying-the-resiliency-of-cloud-native-applications/)
