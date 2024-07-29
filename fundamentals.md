@@ -5,7 +5,9 @@
 - [What is System Design](https://www.youtube.com/watch?v=quLrc3PbuIw)
 - [SPOF](https://www.youtube.com/watch?v=-BOysyYErLY)
 - [Scalability](https://systemdesignprep.com/scalability)
-    - [Architecting for Reliable Scalability](https://aws.amazon.com/blogs/architecture/architecting-for-reliable-scalability/) 
+    - [Scalability Video](https://www.youtube.com/watch?v=xpDnVSmNFX0)
+    - [Architecting for Reliable Scalability](https://aws.amazon.com/blogs/architecture/architecting-for-reliable-scalability/)
+    - [Scalability - optional](https://blog.algomaster.io/p/scalability)
 - [Reliability](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/reliability.html)
 - High Availability
     - [Understanding availability](https://docs.aws.amazon.com/whitepapers/latest/availability-and-beyond-improving-resilience/understanding-availability.html) 
