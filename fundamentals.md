@@ -8,13 +8,15 @@
     - [Scalability Video](https://www.youtube.com/watch?v=xpDnVSmNFX0)
     - [Architecting for Reliable Scalability](https://aws.amazon.com/blogs/architecture/architecting-for-reliable-scalability/)
     - [Scalability - optional](https://blog.algomaster.io/p/scalability)
-- [Reliability](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/reliability.html)
-- Availability
-    - [Availability Video](https://www.youtube.com/watch?v=LdvduBxZRLs)
-    - [Understanding availability](https://docs.aws.amazon.com/whitepapers/latest/availability-and-beyond-improving-resilience/understanding-availability.html) 
-- Resiliency
-    - [How to verify resiliancy of a cloud-native application](https://www.ibm.com/blog/a-four-step-approach-to-verifying-the-resiliency-of-cloud-native-applications/)
-    - [Application Reliliency Patterns](https://learn.microsoft.com/en-us/dotnet/architecture/cloud-native/application-resiliency-patterns)
+- Reliability
+    - Availability
+        - [Availability Video](https://www.youtube.com/watch?v=LdvduBxZRLs)
+        - [Understanding availability](https://docs.aws.amazon.com/whitepapers/latest/availability-and-beyond-improving-resilience/understanding-availability.html) 
+    - Resiliency
+        - [How to verify resiliancy of a cloud-native application](https://www.ibm.com/blog/a-four-step-approach-to-verifying-the-resiliency-of-cloud-native-applications/)
+        - [Application Reliliency Patterns](https://learn.microsoft.com/en-us/dotnet/architecture/cloud-native/application-resiliency-patterns)
+    - [AWS Reliability](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/reliability.html)
+    - [Azure Reliability](https://learn.microsoft.com/en-us/azure/reliability/overview)
 - Fault Tolerance
 - Performance
 - Maintenance
