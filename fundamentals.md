@@ -10,9 +10,11 @@
     - [Scalability - optional](https://blog.algomaster.io/p/scalability)
 - [Reliability](https://www.youtube.com/watch?v=jwsyC9CQKA4)
     - Availability
-        - [Availability Video](https://www.youtube.com/watch?v=LdvduBxZRLs)
+        - [Availability - Video](https://www.youtube.com/watch?v=LdvduBxZRLs)
         - [Understanding availability](https://docs.aws.amazon.com/whitepapers/latest/availability-and-beyond-improving-resilience/understanding-availability.html) 
     - Resiliency
+        - [Patterns for Resilient Architecture - Adrian Hornsby - Video](https://www.youtube.com/watch?v=gET51_C3k5s)
+        - [Five Design Patterns to build resilient Applications - Derek Bingham - NDC Melbourne 2022 - Video](https://www.youtube.com/watch?v=gE4Bo5ZjfgY)
         - [How to verify resiliancy of a cloud-native application](https://www.ibm.com/blog/a-four-step-approach-to-verifying-the-resiliency-of-cloud-native-applications/)
         - [Application Reliliency Patterns](https://learn.microsoft.com/en-us/dotnet/architecture/cloud-native/application-resiliency-patterns)
     - [AWS Reliability](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/reliability.html)
