@@ -8,7 +8,7 @@
     - [Scalability Video](https://www.youtube.com/watch?v=xpDnVSmNFX0)
     - [Architecting for Reliable Scalability](https://aws.amazon.com/blogs/architecture/architecting-for-reliable-scalability/)
     - [Scalability - optional](https://blog.algomaster.io/p/scalability)
-- [Reliability](https://www.youtube.com/watch?v=jwsyC9CQKA4) - has 2 pillors Availability and Resiliency.
+- [Reliability](https://www.youtube.com/watch?v=jwsyC9CQKA4) - has 2 pillors Availability and Resiliency. Fault tolerance and fault isolation are important concepts when we think about availability.
     - Availability
         - [Availability - Video](https://www.youtube.com/watch?v=LdvduBxZRLs)
         - [Understanding availability](https://docs.aws.amazon.com/whitepapers/latest/availability-and-beyond-improving-resilience/understanding-availability.html) 
@@ -20,9 +20,9 @@
         - [Understand resiliency patterns in AWS](https://aws.amazon.com/blogs/architecture/understand-resiliency-patterns-and-trade-offs-to-architect-efficiently-in-the-cloud/)
         - [Azure Application Reliliency Patterns](https://learn.microsoft.com/en-us/dotnet/architecture/cloud-native/application-resiliency-patterns)
         - [Cloud Infrastructure resiliency with Azure](https://learn.microsoft.com/en-us/dotnet/architecture/cloud-native/infrastructure-resiliency-azure)
-    - [AWS Reliability](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/reliability.html)
-    - [Azure Reliability](https://learn.microsoft.com/en-us/azure/reliability/overview)
-- Fault Tolerance
+        - [AWS Reliability](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/reliability.html)
+        - [Azure Reliability](https://learn.microsoft.com/en-us/azure/reliability/overview)
+    - [Fault Tolerance & Fault isolation](https://docs.aws.amazon.com/whitepapers/latest/availability-and-beyond-improving-resilience/fault-tolerance-and-fault-isolation.html)
 - Performance
 - Maintenance
 - [Idempotency](https://serverlessland.com/event-driven-architecture/idempotency)
