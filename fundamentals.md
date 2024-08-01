@@ -15,6 +15,7 @@
     - Resiliency
         - [Patterns for Resilient Architecture - Adrian Hornsby - Video](https://www.youtube.com/watch?v=gET51_C3k5s) It covers Resilancy patterns, Famous 9s of availibility
         - [Five Design Patterns to build resilient Applications - Derek Bingham - NDC Melbourne 2022 - Video](https://www.youtube.com/watch?v=gE4Bo5ZjfgY)
+        - [AWS re:Invent 2023 - Resilient architectures at scale: Real-world use cases from Amazon.com - Video](https://www.youtube.com/watch?v=fQgaR-iQrTY)
         - [How to verify resiliancy of a cloud-native application](https://www.ibm.com/blog/a-four-step-approach-to-verifying-the-resiliency-of-cloud-native-applications/)
         - [Understand resiliency patterns in AWS](https://aws.amazon.com/blogs/architecture/understand-resiliency-patterns-and-trade-offs-to-architect-efficiently-in-the-cloud/)
         - [Azure Application Reliliency Patterns](https://learn.microsoft.com/en-us/dotnet/architecture/cloud-native/application-resiliency-patterns)
