@@ -23,8 +23,7 @@
         - [AWS Reliability](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/reliability.html)
         - [Azure Reliability](https://learn.microsoft.com/en-us/azure/reliability/overview)
     - [Fault Tolerance & Fault isolation](https://docs.aws.amazon.com/whitepapers/latest/availability-and-beyond-improving-resilience/fault-tolerance-and-fault-isolation.html)
-- Performance
-- Maintenance
+    
 - [Idempotency](https://serverlessland.com/event-driven-architecture/idempotency)
     - [Implement idempotent AWS Lambda functions](https://aws.amazon.com/blogs/compute/implementing-idempotent-aws-lambda-functions-with-powertools-for-aws-lambda-typescript/)
 ## [Latency - Why it matters?](https://www.ibm.com/topics/latency)
