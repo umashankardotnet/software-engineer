@@ -16,7 +16,9 @@
         - [Patterns for Resilient Architecture - Adrian Hornsby - Video](https://www.youtube.com/watch?v=gET51_C3k5s) It covers Resilancy patterns, Famous 9s of availibility
         - [Five Design Patterns to build resilient Applications - Derek Bingham - NDC Melbourne 2022 - Video](https://www.youtube.com/watch?v=gE4Bo5ZjfgY)
         - [How to verify resiliancy of a cloud-native application](https://www.ibm.com/blog/a-four-step-approach-to-verifying-the-resiliency-of-cloud-native-applications/)
-        - [Application Reliliency Patterns](https://learn.microsoft.com/en-us/dotnet/architecture/cloud-native/application-resiliency-patterns)
+        - [Understand resiliency patterns in AWS](https://aws.amazon.com/blogs/architecture/understand-resiliency-patterns-and-trade-offs-to-architect-efficiently-in-the-cloud/)
+        - [Azure Application Reliliency Patterns](https://learn.microsoft.com/en-us/dotnet/architecture/cloud-native/application-resiliency-patterns)
+        - [Cloud Infrastructure resiliency with Azure](https://learn.microsoft.com/en-us/dotnet/architecture/cloud-native/infrastructure-resiliency-azure)
     - [AWS Reliability](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/reliability.html)
     - [Azure Reliability](https://learn.microsoft.com/en-us/azure/reliability/overview)
 - Fault Tolerance
