@@ -4,10 +4,11 @@
 - [Cloud native - AWS](https://aws.amazon.com/what-is/cloud-native/)
 - [What is System Design](https://www.youtube.com/watch?v=quLrc3PbuIw)
 - [SPOF](https://www.youtube.com/watch?v=-BOysyYErLY)
-- [Scalability](https://systemdesignprep.com/scalability)
-    - [Scalability Video](https://www.youtube.com/watch?v=xpDnVSmNFX0)
-    - [Architecting for Reliable Scalability](https://aws.amazon.com/blogs/architecture/architecting-for-reliable-scalability/)
-    - [Scalability - optional](https://blog.algomaster.io/p/scalability)
+- [Scalability](https://www.youtube.com/watch?v=xpDnVSmNFX0) -
+Below are some additional docs to read about scalability.
+    - [Scalability - doc](https://blog.algomaster.io/p/scalability)
+    - [Scalability - doc](https://systemdesignprep.com/scalability)
+    - [Architecting for Reliable Scalability by AWS](https://aws.amazon.com/blogs/architecture/architecting-for-reliable-scalability/)
 - [Reliability](https://www.youtube.com/watch?v=jwsyC9CQKA4) - has 2 pillors Availability and Resiliency. Fault tolerance and fault isolation are important concepts when we think about availability.
     - Availability
         - [Availability - Video](https://www.youtube.com/watch?v=LdvduBxZRLs)
