@@ -10,9 +10,9 @@ Below are some additional docs to read about scalability.
     - [Scalability - doc](https://systemdesignprep.com/scalability)
     - [Architecting for Reliable Scalability by AWS](https://aws.amazon.com/blogs/architecture/architecting-for-reliable-scalability/)
 - [Reliability](https://www.youtube.com/watch?v=jwsyC9CQKA4) - has 2 pillors Availability and Resiliency. Fault tolerance and fault isolation are important concepts when we think about availability.
-    - Availability
-        - [Availability - Video](https://www.youtube.com/watch?v=LdvduBxZRLs)
-        - [Understanding availability](https://docs.aws.amazon.com/whitepapers/latest/availability-and-beyond-improving-resilience/understanding-availability.html) 
+    - [Availability](https://www.youtube.com/watch?v=LdvduBxZRLs)
+        - [Understanding availability - AWS](https://docs.aws.amazon.com/whitepapers/latest/availability-and-beyond-improving-resilience/understanding-availability.html)
+    - [Fault Tolerance & Fault isolation](https://docs.aws.amazon.com/whitepapers/latest/availability-and-beyond-improving-resilience/fault-tolerance-and-fault-isolation.html)
     - Resiliency
         - [Patterns for Resilient Architecture - Adrian Hornsby - Video](https://www.youtube.com/watch?v=gET51_C3k5s) It covers Resilancy patterns, Famous 9s of availibility
         - [Five Design Patterns to build resilient Applications - Derek Bingham - NDC Melbourne 2022 - Video](https://www.youtube.com/watch?v=gE4Bo5ZjfgY)
@@ -23,7 +23,7 @@ Below are some additional docs to read about scalability.
         - [Cloud Infrastructure resiliency with Azure](https://learn.microsoft.com/en-us/dotnet/architecture/cloud-native/infrastructure-resiliency-azure)
         - [AWS Reliability](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/reliability.html)
         - [Azure Reliability](https://learn.microsoft.com/en-us/azure/reliability/overview)
-    - [Fault Tolerance & Fault isolation](https://docs.aws.amazon.com/whitepapers/latest/availability-and-beyond-improving-resilience/fault-tolerance-and-fault-isolation.html)
+
     
 - [Idempotency](https://serverlessland.com/event-driven-architecture/idempotency)
     - [Implement idempotent AWS Lambda functions](https://aws.amazon.com/blogs/compute/implementing-idempotent-aws-lambda-functions-with-powertools-for-aws-lambda-typescript/)
