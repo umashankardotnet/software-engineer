@@ -23,7 +23,8 @@ Below are some additional docs to read about scalability.
         - [Cloud Infrastructure resiliency with Azure](https://learn.microsoft.com/en-us/dotnet/architecture/cloud-native/infrastructure-resiliency-azure)
         - [AWS Reliability](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/reliability.html)
         - [Azure Reliability](https://learn.microsoft.com/en-us/azure/reliability/overview)
-
+- [CAP Theoram](https://www.youtube.com/watch?v=eWMgsk7mpFc)
+    - [CAP Theoram Explained](https://blog.algomaster.io/p/cap-theorem-explained)
     
 - [Idempotency](https://serverlessland.com/event-driven-architecture/idempotency)
     - [Implement idempotent AWS Lambda functions](https://aws.amazon.com/blogs/compute/implementing-idempotent-aws-lambda-functions-with-powertools-for-aws-lambda-typescript/)
@@ -74,3 +75,9 @@ Know more about Caching, Cache Hit, Cache Miss, Cache Invalidation Strategy
 - []
 
 ## [Some Goof Engineering Blogs](https://interviewready.io/blog)
+
+### Non Functional Requiremets
+  To design a system, there are some non-functional requirements which helps to make decisions.
+- Letency
+- Consistency & Availability - CAP theoram will help you to decide CP vs AP.
+- 
