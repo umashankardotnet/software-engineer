@@ -24,7 +24,8 @@ Below are some additional docs to read about scalability.
         - [AWS Reliability](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/reliability.html)
         - [Azure Reliability](https://learn.microsoft.com/en-us/azure/reliability/overview)
 - [CAP Theoram](https://www.youtube.com/watch?v=eWMgsk7mpFc)
-    - [CAP Theoram Explained](https://blog.algomaster.io/p/cap-theorem-explained)
+    - [CAP & PACELC Theoram](https://blog.algomaster.io/p/cap-theorem-explained)
+    - [CAP & PACELC Theorem Simplified - Video](https://www.youtube.com/watch?v=8UryASGBiR4)
     
 - [Idempotency](https://serverlessland.com/event-driven-architecture/idempotency)
     - [Implement idempotent AWS Lambda functions](https://aws.amazon.com/blogs/compute/implementing-idempotent-aws-lambda-functions-with-powertools-for-aws-lambda-typescript/)
