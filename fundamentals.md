@@ -23,7 +23,7 @@ Below are some additional docs to read about scalability.
         - [Cloud Infrastructure resiliency with Azure](https://learn.microsoft.com/en-us/dotnet/architecture/cloud-native/infrastructure-resiliency-azure)
         - [AWS Reliability](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/reliability.html)
         - [Azure Reliability](https://learn.microsoft.com/en-us/azure/reliability/overview)
-- [Latency - Why it matters?](https://www.ibm.com/topics/latency)
+- [Latency - Why it matters?, Latency, Bandwidth and Throughput](https://www.ibm.com/topics/latency)
   A simplified, but helpful way to remember the relationship between latency, bandwidth and throughput is that bandwidth is the amount of data that could travel over a network, throughput is the measure of how much actually transfers per second, and latency is the time it takes to do so.
 - [CAP Theoram](https://www.youtube.com/watch?v=eWMgsk7mpFc)
     - [CAP & PACELC Theoram](https://blog.algomaster.io/p/cap-theorem-explained)
