@@ -74,7 +74,6 @@ Know more about Caching, Cache Hit, Cache Miss, Cache Invalidation Strategy
 - [Sequence Diagrams] - TODO , Lucide Chart we can use to create sequence diagrams [Sequence daigram with Lucid](https://www.youtube.com/watch?v=pCK6prSq8aw).
 - [UML Diagrams]
 - []
-
 ## [Some Goof Engineering Blogs](https://interviewready.io/blog)
 
 ### Non Functional Requiremets
@@ -82,3 +81,5 @@ Know more about Caching, Cache Hit, Cache Miss, Cache Invalidation Strategy
 - Letency
 - Consistency & Availability - CAP theoram will help you to decide CP vs AP.
 - 
+
+Make a proper plan to become master in System Design, Make this schedule topic wise then complexity wise. Basic system Design topics are available every where so make it with proper AWS and Microsoft Blogs reference , for example ([Disaster Recovery (DR) Architecture on AWS](https://aws.amazon.com/blogs/architecture/disaster-recovery-dr-architecture-on-aws-part-i-strategies-for-recovery-in-the-cloud/)). Post 1 topic with (summary and example) daily on Linkedin once this system design is almost complete and  focus should be more on System design instead of DSA. For senior positions System Design, HLD, LLD matters. and provide some examples as well like How netflix scaled his system, etc.
