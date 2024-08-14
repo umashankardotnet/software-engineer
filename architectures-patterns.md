@@ -1,5 +1,9 @@
 Below are the resources for Architectural patterns
 ## [Architecture Patterns](https://learn.microsoft.com/en-us/azure/architecture/patterns/)
+- Clean Architecture
+  - [Clean Architecture with ASP.NET Core 8 | .NET Conf 2023](https://www.youtube.com/watch?v=yF9SwL0p0Y0)
+  - [Clean Architecture Project Setup From Scratch With .NET 7](https://www.youtube.com/watch?v=fe4iuaoxGbA)
+- Microservices Architecture
 ## Microservices Patterns
 - [Strangler Fig Pattern]
   - [Pros and Cons](https://www.redhat.com/architect/pros-and-cons-strangler-architecture-pattern)
