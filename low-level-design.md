@@ -49,23 +49,108 @@ public class PercentageDiscount : IDiscount
 
 #### **3. Liskov Substitution Principle (LSP)**
 - **Definition**: Subtypes must be substitutable for their base types.
-- **Explanation**: Derived classes should not violate the expectations set by the base class.
-- **Example in .NET**:
+- **Explanation**: Derived classes should not violate the expectations set by the base class. This ensures that the derived class can be used in place of the base class without altering the correctness of the program.
+
+- **Key Aspects**:
+  - A derived class should not remove behavior expected by the base class.
+  - The derived class should honor contracts established by the base class, such as method signatures, invariants, and pre/post-conditions.
+
+- **Benefits**:
+  - Improves code reusability and consistency.
+  - Reduces bugs caused by unexpected behaviors in derived classes.
+
+- **Example in .NET (Violation)**:
 ```csharp
-public class Rectangle
+// Base class
+public class Bird
 {
-    public virtual int Width { get; set; }
-    public virtual int Height { get; set; }
-    public int Area => Width * Height;
+    public virtual void Move()
+    {
+        Console.WriteLine("This bird is moving.");
+    }
 }
 
-public class Square : Rectangle
+// Derived class: Sparrow
+public class Sparrow : Bird
 {
-    public override int Width { set { base.Width = base.Height = value; } }
-    public override int Height { set { base.Width = base.Height = value; } }
+    public override void Move()
+    {
+        Console.WriteLine("Sparrow is flying.");
+    }
 }
-// Squares correctly extend the behavior of rectangles.
+
+// Derived class: Penguin
+public class Penguin : Bird
+{
+    public override void Move()
+    {
+        throw new NotImplementedException("Penguins cannot move this way.");
+    }
+}
+
+// Usage
+public void DescribeMovement(Bird bird)
+{
+    bird.Move();
+}
+
+// Test cases
+Bird sparrow = new Sparrow();
+Bird penguin = new Penguin();
+DescribeMovement(sparrow); // Output: "Sparrow is flying."
+DescribeMovement(penguin); // Throws runtime exception
 ```
+
+- **Explanation of Violation**:
+  1. The base class `Bird` establishes the expectation that all birds can `Move` in some way.
+  2. The `Penguin` class breaks this expectation by throwing an exception, violating the principle.
+  3. The `DescribeMovement` method now depends on the specific implementation, which defeats the purpose of polymorphism.
+
+- **Corrected Example**:
+```csharp
+// Base class
+public abstract class Bird
+{
+    public abstract void Move();
+}
+
+// Derived class: Sparrow
+public class Sparrow : Bird
+{
+    public override void Move()
+    {
+        Console.WriteLine("Sparrow is flying.");
+    }
+}
+
+// Derived class: Penguin
+public class Penguin : Bird
+{
+    public override void Move()
+    {
+        Console.WriteLine("Penguin is swimming.");
+    }
+}
+
+// Correct usage
+public void DescribeMovement(Bird bird)
+{
+    bird.Move();
+}
+
+// Test cases
+Bird sparrow = new Sparrow();
+Bird penguin = new Penguin();
+DescribeMovement(sparrow); // Output: "Sparrow is flying."
+DescribeMovement(penguin); // Output: "Penguin is swimming."
+```
+
+- **Explanation of Correctness**:
+  1. The base class `Bird` is now abstract, requiring each derived class to define its own `Move` behavior.
+  2. Each derived class adheres to the expected contract and provides meaningful implementations.
+  3. The `DescribeMovement` method works correctly for all types of birds without any runtime exceptions.
+
+- **Key Takeaway**: Avoid designing base classes with assumptions that may not hold for all derived types. Use abstraction to enforce behavior consistency.
 
 ---
 
