@@ -82,8 +82,6 @@ The content reffered in this repository belongs to the respected site owners.
 - [Peer-to-Peer (P2P) Architecture](https://www.spiceworks.com/tech/networking/articles/what-is-peer-to-peer/)
 
 ## ✅ How to Answer a System Design Interview Problem
-<img src="diagrams/interview-template.png" width="400" height="250">
-
 ### [Read the Full Article](https://blog.algomaster.io/p/how-to-answer-a-system-design-interview-problem)
 
 ## 💻 System Design Interview Problems
