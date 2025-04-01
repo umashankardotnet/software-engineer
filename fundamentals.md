@@ -55,6 +55,9 @@ This document explains about Consistency ([Strong vs Week](https://www.geeksforg
   - [Reverse Proxy vs. API Gateway vs. Load Balancer vs. Forward Proxy]
   - [Open API Spec] (https://swagger.io/specification/)
 
+## Security 
+- [TLS Termination - Types, Uses, Benefits]()
+
 ## [SQL vs NoSQL](https://www.ibm.com/blog/sql-vs-nosql/)
 ## Caching
 Know more about Caching, Cache Hit, Cache Miss, Cache Invalidation Strategy
