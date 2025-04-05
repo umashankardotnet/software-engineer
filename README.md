@@ -15,6 +15,14 @@ This repository provides step by step approach to become expert in system design
 
 ### Modern Trends shaping system design
 
+### Security Considerations
+
+### Advanced Monitoring & Observability
+
+### Performance Optimization
+
+### Cloud-Native Patterns
+
 ### Best Practices
 
 ### Must read Articles
