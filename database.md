@@ -32,6 +32,9 @@ Choosing the best database for your next application involves analyzing your app
 
 8. **Ecosystem**
    - Does the database integrate with your stack (e.g., .NET for cloud-native apps)?
+  
+9. **Data Integrity**
+   - 
 
 ---
 
