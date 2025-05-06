@@ -31,6 +31,7 @@ Below are some additional docs to read about scalability.
 - [Idempotency](https://serverlessland.com/event-driven-architecture/idempotency)
     - [Implement idempotent AWS Lambda functions](https://aws.amazon.com/blogs/compute/implementing-idempotent-aws-lambda-functions-with-powertools-for-aws-lambda-typescript/)
 - [distributed Messaging Queue]()
+- [distributed locking]()
 
 - ### CDN
 - ### Edge Computing
