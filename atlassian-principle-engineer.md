@@ -1,3 +1,4 @@
+# Principal Engineer interview at Atlassian
 How to prepare for a Principal Engineer interview at Atlassian. Here's a comprehensive preparation strategy:
 
 **1. Technical Interview Preparation**
@@ -122,7 +123,7 @@ Remember:
 
 This preparation should give you a strong foundation for the interview process. The key is to demonstrate not just technical expertise, but also leadership capability and cultural fit.
 
-## detailed breakdown
+## Detailed Breakdown
 Here's a more refined and comprehensive preparation guide for Atlassian Principal Engineer interviews:
 
 **1. Interview Process Structure**
