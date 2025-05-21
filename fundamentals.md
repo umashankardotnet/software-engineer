@@ -3,6 +3,7 @@
 - [Cloud native - Microsoft](https://learn.microsoft.com/en-us/dotnet/architecture/cloud-native/definition)
 - [Cloud native - AWS](https://aws.amazon.com/what-is/cloud-native/)
 - [What is System Design](https://www.youtube.com/watch?v=quLrc3PbuIw)
+- [Algorithms you must know before system design](https://www.youtube.com/watch?v=xbgzl2maQUU)
 - [SPOF](https://www.youtube.com/watch?v=-BOysyYErLY)
 - [Scalability](https://www.youtube.com/watch?v=xpDnVSmNFX0) -
 Below are some additional docs to read about scalability.
