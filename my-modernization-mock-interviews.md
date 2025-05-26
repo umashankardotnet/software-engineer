@@ -10,6 +10,7 @@ How would you handle payment data security?
 What monitoring and observability solutions would you implement?
 Please walk me through your approach.
 ### Answer
+I did not implement this system, Just I led the modernization of this application.
 
 ## Question
 Could you walk me through the modernization process you performed for the payment processing application? Specifically:
