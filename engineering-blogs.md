@@ -13,3 +13,5 @@
 13. Microservice Architecture at Medium (https://lnkd.in/gGArQqYw)
 14. Kubernetes at Tinder (https://lnkd.in/g52mKp45)
 15. Kubernetes at Quora (https://lnkd.in/gAAuzmaF)
+
+16. 10 Software architecture patterns you must know(https://codysolutions.com/blog/10-software-architecture-patterns-you-must-know-about)
