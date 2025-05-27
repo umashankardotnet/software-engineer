@@ -33,7 +33,7 @@ Below are some additional docs to read about scalability.
     - [Implement idempotent AWS Lambda functions](https://aws.amazon.com/blogs/compute/implementing-idempotent-aws-lambda-functions-with-powertools-for-aws-lambda-typescript/)
 - [distributed Messaging Queue]()
 - [distributed locking]()
-- [Cascading Failures]()
+- [Cascading Failures](https://github.com/bhanu00/system-design/blob/main/cascading-failure.md)
 
 - ### CDN
 - ### Edge Computing
