@@ -61,6 +61,7 @@ This document explains about Consistency ([Strong vs Week](https://www.geeksforg
 
 ## Security 
 - [TLS Termination - Types, Uses, Benefits]()
+- [How SSL/TLS works when connecting to anything]()
 
 ## [SQL vs NoSQL](https://www.ibm.com/blog/sql-vs-nosql/)
 ## Caching
