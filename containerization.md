@@ -83,7 +83,10 @@ To build multi-platform images, use Docker's BuildKit feature:
 # Enable BuildKit
 export DOCKER_BUILDKIT=1
 
-# Build for multiple platforms
+# To build and load image locally
+docker buildx build --platform linux/amd64 -t <tag> --load .
+
+# Build for multiple platforms , and push 
 docker buildx build --platform linux/amd64,linux/arm64 -t myapp:latest --push .
 ```
 
