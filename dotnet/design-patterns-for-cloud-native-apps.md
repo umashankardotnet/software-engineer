@@ -33,6 +33,7 @@ When implementing cloud-native applications using .NET, leveraging the right des
 ### **2. Resilience and Fault Tolerance Patterns**
 
 #### **a. Retry Pattern**
+Use [Polly Library](https://www.pollydocs.org/) for Resilience strategies.
 
 * Retry failed operations with exponential backoff.
 * **Implementation in .NET**:
