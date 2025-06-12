@@ -1,4 +1,4 @@
-When implementing cloud-native applications using .NET, leveraging the right design patterns ensures scalability, reliability, and maintainability. Below are the **best design patterns** tailored for cloud-native .NET applications:
+When implementing cloud-native applications using .NET, leveraging the right design patterns ensures scalability, reliability, and maintainability. Below are the [**best design patterns**](https://learn.microsoft.com/en-us/azure/architecture/patterns/) tailored for cloud-native .NET applications:
 
 ---
 
