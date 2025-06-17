@@ -54,14 +54,70 @@ services.AddQuartz(...); // Add job and trigger with cron
 
 ### 2.3 Hangfire
 
-Reliable background job processor with dashboard.
+Reliable background job processor with retry, dashboard, and persistence support.
 
-```csharp
-BackgroundJob.Enqueue(() => Console.WriteLine("Job"));
-RecurringJob.AddOrUpdate(() => Console.WriteLine("Daily Job"), Cron.Daily);
+#### Installation:
+
+```bash
+dotnet add package Hangfire.AspNetCore
 ```
 
-**Setup:** `services.AddHangfire(...);`
+#### Configuration:
+
+In `Startup.cs` (for ASP.NET Core):
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddHangfire(config =>
+        config.UseSqlServerStorage(Configuration.GetConnectionString("HangfireConnection")));
+
+    services.AddHangfireServer();
+}
+
+public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+{
+    app.UseHangfireDashboard();
+    // Optional authorization on dashboard
+    // app.UseHangfireDashboard("/hangfire", new DashboardOptions { Authorization = ... });
+}
+```
+
+#### Background Job Examples:
+
+```csharp
+// Fire-and-forget job
+BackgroundJob.Enqueue(() => Console.WriteLine("Hello from Hangfire!"));
+
+// Delayed job
+BackgroundJob.Schedule(() => Console.WriteLine("Delayed Job"), TimeSpan.FromMinutes(10));
+
+// Recurring job
+RecurringJob.AddOrUpdate("my-recurring-job", () => Console.WriteLine("Recurring Task"), Cron.Daily);
+
+// Continuation job
+var parentJobId = BackgroundJob.Enqueue(() => Console.WriteLine("First Job"));
+BackgroundJob.ContinueJobWith(parentJobId, () => Console.WriteLine("Next Job"));
+```
+
+#### Dashboard:
+
+Available at `/hangfire` with real-time monitoring of jobs, failures, retries, etc.
+
+#### Job Classes:
+
+```csharp
+public class EmailService
+{
+    public void SendEmail(string to, string subject) => Console.WriteLine($"Email sent to {to} with subject {subject}");
+}
+```
+
+```csharp
+BackgroundJob.Enqueue<EmailService>(x => x.SendEmail("test@example.com", "Welcome!"));
+```
+
+---
 
 ### 2.4 .NET Worker Service (Standalone)
 
@@ -80,7 +136,9 @@ dotnet new worker -n MyWorkerService
 * Use cron expressions to run .NET Lambda
 * No server to manage
 
-**Sample cron:** `cron(0 18 ? * MON-FRI *)` **.NET Lambda handler:**
+**Sample cron:** `cron(0 18 ? * MON-FRI *)`
+
+**.NET Lambda handler:**
 
 ```csharp
 public class Function
