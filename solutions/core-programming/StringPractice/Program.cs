@@ -7,8 +7,21 @@ namespace StringPractice
         static void Main(string[] args)
         {
             //StringEquality();
-            StringOperations();
+            // StringOperations();
+
             Console.WriteLine("Hello World!");
+
+            string root = @"C:\users";
+            string root2 = @"C:\Users";
+
+            bool result = root.Equals(root2);
+            Console.WriteLine($"Ordinal comparison: <{root}> and <{root2}> are {(result ? "equal." : "not equal.")}");
+
+            result = root.Equals(root2, StringComparison.Ordinal);
+            Console.WriteLine($"Ordinal comparison: <{root}> and <{root2}> are {(result ? "equal." : "not equal.")}");
+
+            Console.WriteLine($"Using == says that <{root}> and <{root2}> are {(root == root2 ? "equal" : "not equal")}");
+
             Console.ReadLine();
         }
 
