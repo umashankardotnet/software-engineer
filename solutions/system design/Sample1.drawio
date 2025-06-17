@@ -1,0 +1,64 @@
+<mxfile host="app.diagrams.net" modified="2023-09-11T05:51:10.353Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.69" etag="fRVH4R6IH4HXwUiXtk-O" version="21.7.4" type="device">
+  <diagram name="Page-1" id="O6lJ0ZIMGxqbSv05-ddu">
+    <mxGraphModel dx="794" dy="438" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="dVkT7ydUoDlIIO0Fy4Po-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="dVkT7ydUoDlIIO0Fy4Po-1" target="dVkT7ydUoDlIIO0Fy4Po-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="180" y="158" />
+              <mxPoint x="180" y="158" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dVkT7ydUoDlIIO0Fy4Po-1" value="" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#232F3D;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.client;" vertex="1" parent="1">
+          <mxGeometry x="40" y="120" width="78" height="76" as="geometry" />
+        </mxCell>
+        <mxCell id="dVkT7ydUoDlIIO0Fy4Po-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.036;entryY=0.709;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="dVkT7ydUoDlIIO0Fy4Po-2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="397.3071171437002" y="175.30200000000002" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dVkT7ydUoDlIIO0Fy4Po-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="dVkT7ydUoDlIIO0Fy4Po-2" target="dVkT7ydUoDlIIO0Fy4Po-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dVkT7ydUoDlIIO0Fy4Po-2" value="Amazon Cloudfront" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=#ffffff;fillColor=#232F3E;dashed=0;verticalLabelPosition=middle;verticalAlign=bottom;align=center;html=1;whiteSpace=wrap;fontSize=10;fontStyle=1;spacing=3;shape=mxgraph.aws4.productIcon;prIcon=mxgraph.aws4.cloudfront;" vertex="1" parent="1">
+          <mxGeometry x="190" y="120" width="80" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="dVkT7ydUoDlIIO0Fy4Po-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="dVkT7ydUoDlIIO0Fy4Po-4" target="dVkT7ydUoDlIIO0Fy4Po-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="140" y="279" />
+              <mxPoint x="140" y="175" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dVkT7ydUoDlIIO0Fy4Po-4" value="" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#232F3D;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.mobile_client;" vertex="1" parent="1">
+          <mxGeometry x="50" y="240" width="41" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="dVkT7ydUoDlIIO0Fy4Po-8" value="Amazon S3" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=#ffffff;fillColor=#232F3E;dashed=0;verticalLabelPosition=middle;verticalAlign=bottom;align=center;html=1;whiteSpace=wrap;fontSize=10;fontStyle=1;spacing=3;shape=mxgraph.aws4.productIcon;prIcon=mxgraph.aws4.s3;" vertex="1" parent="1">
+          <mxGeometry x="400" y="120" width="80" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="dVkT7ydUoDlIIO0Fy4Po-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="dVkT7ydUoDlIIO0Fy4Po-9" target="dVkT7ydUoDlIIO0Fy4Po-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dVkT7ydUoDlIIO0Fy4Po-9" value="Amazon API Gateway" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=#ffffff;fillColor=#232F3E;dashed=0;verticalLabelPosition=middle;verticalAlign=bottom;align=center;html=1;whiteSpace=wrap;fontSize=10;fontStyle=1;spacing=3;shape=mxgraph.aws4.productIcon;prIcon=mxgraph.aws4.api_gateway;" vertex="1" parent="1">
+          <mxGeometry x="210" y="280" width="80" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="dVkT7ydUoDlIIO0Fy4Po-10" value="Amazon DynamoDB" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=#ffffff;fillColor=#232F3E;dashed=0;verticalLabelPosition=middle;verticalAlign=bottom;align=center;html=1;whiteSpace=wrap;fontSize=10;fontStyle=1;spacing=3;shape=mxgraph.aws4.productIcon;prIcon=mxgraph.aws4.dynamodb;" vertex="1" parent="1">
+          <mxGeometry x="560" y="280" width="80" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="dVkT7ydUoDlIIO0Fy4Po-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="dVkT7ydUoDlIIO0Fy4Po-14" target="dVkT7ydUoDlIIO0Fy4Po-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dVkT7ydUoDlIIO0Fy4Po-14" value="" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.lambda_function;fillColor=#F58534;gradientColor=none;" vertex="1" parent="1">
+          <mxGeometry x="380" y="280" width="69" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="dVkT7ydUoDlIIO0Fy4Po-17" value="&lt;h1&gt;Heading&lt;/h1&gt;&lt;p&gt;&lt;/p&gt;&lt;ol&gt;&lt;li&gt;static content is being served from S3 via cloudFront.&lt;/li&gt;&lt;li&gt;Dynamic content will be served from DynamoDB using API Gateway backed Lambda.&lt;/li&gt;&lt;/ol&gt;&lt;p&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="540" y="30" width="260" height="120" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
