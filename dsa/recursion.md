@@ -139,7 +139,7 @@ Call with `TailSum(5, 0)` gives `15`
 ## Summary
 
 | Term           | Meaning                              |
-| -- |  |
+| -------------- | ------------------------------------ |
 | Recursion      | Function calling itself              |
 | Base case      | Terminates recursion                 |
 | Recursive case | Problem divided into smaller parts   |
