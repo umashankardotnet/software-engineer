@@ -1,4 +1,4 @@
-# Dynamic Programming - Detailed Explanation with 15 Use Cases
+# Dynamic Programming
 
 ## What is Dynamic Programming (DP)?
 
@@ -284,9 +284,51 @@ Notice how **Fib(3)** and **Fib(2)** appear multiple times. DP saves their resul
 | **Game Strategy**             | Recurring game states + decision tree = perfect for memoization       |
 
 ## Final Thoughts
-
+Dynamic Programming allows you to trade off time for space by caching or tabulating results. The key to mastering DP is recognizing overlapping subproblems and structuring your solution to avoid recomputation. Start with recursion to understand the problem, then convert to DP (top-down or bottom-up) for performance.
 Dynamic Programming helps you:
 
 * Avoid recalculating
 * Improve time efficiency
 * Handle complex recursive dependencies
+
+
+
+## Why DP 
+
+| Use Case                                         | Why DP?                                                                                                                      |
+| ------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------- |
+| **1. Longest Common Subsequence (LCS)**          | Overlapping subproblems from comparing string prefixes; optimal solution depends on optimal solutions of smaller substrings. |
+| **2. Longest Palindromic Substring/Subsequence** | Repeated checking of the same substrings; palindromic state depends on smaller substring checks.                             |
+| **3. 0/1 Knapsack**                              | Decisions to include or exclude items repeat; maximum value for a weight depends on previous optimal values.                 |
+| **4. Partition Equal Subset Sum**                | Similar subset sums calculated multiple times; a solution builds from smaller subset sums.                                   |
+| **5. Game Theory (e.g., Nim Game)**              | Game states recur; win/lose decisions depend on opponent's best options from smaller subgames.                               |
+| **6. Unique Paths in a Grid**                    | Paths to a cell depend on paths to adjacent cells; values are reused for different routes.                                   |
+| **7. Longest Increasing Subsequence (LIS)**      | Subsequence evaluations overlap; length at index depends on prior increasing values.                                         |
+| **8. Coin Change (Min Coins)**                   | Combinations to form amounts overlap; minimum coins for a value depends on smaller values.                                   |
+| **9. Rod Cutting**                               | Segment combinations overlap; maximum profit for length builds from smaller length profits.                                  |
+| **10. Boolean Parenthesization**                 | Subexpression evaluations overlap; result builds from valid subexpression groupings.                                         |
+| **11. String Interleaving**                      | Subproblems of interleaving two strings recur; depends on inclusion of current characters.                                   |
+| **12. Matrix Chain Multiplication**              | Matrix segment multiplications overlap; best cost from segment partitions.                                                   |
+| **13. Job Scheduling with Deadlines**            | Same job sets considered repeatedly; optimal schedule depends on earlier selections.                                         |
+| **14. Wildcard Pattern Matching**                | Matching character sequences with wildcards repeats; match state depends on earlier matches.                                 |
+| **15. Maximum Subarray Sum (Kadane’s Algo)**     | Same subarray sums recalculated; current max depends on previous sums.                                                       |
+
+## Common DP Problems in Big Tech Interviews (with Hints and Reasoning)
+
+| Problem                         | Why It's Asked                                         | Core Idea                          | Hint                                                            |
+| ------------------------------- | ------------------------------------------------------ | ---------------------------------- | --------------------------------------------------------------- |
+| Fibonacci Sequence              | Easy warm-up for DP                                    | Bottom-up DP vs recursion          | Optimize to O(1) space                                          |
+| Climbing Stairs                 | Real-world DP base                                     | Similar to Fibonacci               | Ways to climb n steps                                           |
+| Longest Palindromic Substring   | String DP understanding                                | Expand around center / 2D DP       | Use dp\[i]\[j] = true if s\[i] == s\[j] and inner is palindrome |
+| Longest Palindromic Subsequence | Understand difference between subsequence vs substring | Reuse LCS logic                    | Compare string with its reverse                                 |
+| Longest Common Subsequence      | Classic 2D DP table                                    | Compare prefixes                   | Think recursively, cache results                                |
+| Edit Distance                   | Measures change cost between strings                   | Insert/Delete/Replace costs        | dp\[i]\[j] = min(dp\[i-1]\[j-1]...)                             |
+| Word Break                      | String + Set DP                                        | dp\[i] = true if word ends at i    | Use dictionary lookup                                           |
+| Coin Change (min coins)         | Optimization under constraint                          | dp\[amount] = min(...)             | Think of each coin as a choice                                  |
+| House Robber                    | Linear DP with non-adjacent condition                  | Cannot rob adjacent houses         | dp\[i] = max(dp\[i-1], dp\[i-2] + val)                          |
+| House Robber II                 | Circular variant of House Robber                       | First and last house conflict      | Try 2 cases: include first or last                              |
+| Decode Ways                     | DP + string encoding logic                             | 1 or 2 digit mappings              | dp\[i] = valid 1 or 2-digit interpretations                     |
+| Jump Game                       | DP + Greedy combo                                      | Max reachable index                | dp\[i] = reachable from previous                                |
+| Maximum Subarray                | Kadane’s Algorithm                                     | Local max vs global max            | dp\[i] = max(nums\[i], dp\[i-1]+nums\[i])                       |
+| Partition Equal Subset Sum      | Subset-sum variant                                     | dp\[i]\[sum] = true/false          | Target = total / 2                                              |
+| 0/1 Knapsack                    | Classic optimization                                   | dp\[i]\[j] = max(include, exclude) | Use nested loop: items and weight                               |
