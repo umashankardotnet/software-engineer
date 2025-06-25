@@ -332,3 +332,129 @@ Dynamic Programming helps you:
 | Maximum Subarray                | Kadane’s Algorithm                                     | Local max vs global max            | dp\[i] = max(nums\[i], dp\[i-1]+nums\[i])                       |
 | Partition Equal Subset Sum      | Subset-sum variant                                     | dp\[i]\[sum] = true/false          | Target = total / 2                                              |
 | 0/1 Knapsack                    | Classic optimization                                   | dp\[i]\[j] = max(include, exclude) | Use nested loop: items and weight                               |
+
+
+## Call Stack Diagram of Fibonacci(n)
+Let’s walk through a **step-by-step call stack diagram** of a real-world recursive problem: **Fibonacci with and without memoization**, so you understand how recursion behaves and how memoization "remembers" previous results.
+The Fibonacci sequence is:
+
+```
+Fib(0) = 0  
+Fib(1) = 1  
+Fib(n) = Fib(n - 1) + Fib(n - 2)
+```
+
+
+## ❌ Step-by-Step Without Memoization
+
+### C# Code:
+
+```csharp
+int Fib(int n) {
+    if (n <= 1) return n;
+    return Fib(n - 1) + Fib(n - 2);
+}
+```
+
+### Let’s trace: `Fib(4)`
+
+```
+Fib(4)
+├── Fib(3)
+│   ├── Fib(2)
+│   │   ├── Fib(1) → 1
+│   │   └── Fib(0) → 0
+│   │       => Fib(2) = 1
+│   └── Fib(1) → 1
+│       => Fib(3) = 2
+└── Fib(2)
+    ├── Fib(1) → 1
+    └── Fib(0) → 0
+        => Fib(2) = 1
+=> Fib(4) = 3
+```
+
+### 🧠 What's Happening on the Stack:
+
+* Every time `Fib(n)` is called, a **new stack frame** is pushed.
+* Once the base case is reached (`n <= 1`), it starts **returning up the stack**.
+* **No values are remembered**, so `Fib(2)` is calculated **twice**.
+
+---
+
+## ✅ Step-by-Step With Memoization
+
+### C# Code:
+
+```csharp
+Dictionary<int, int> memo = new();
+
+int Fib(int n) {
+    if (n <= 1) return n;
+    if (memo.ContainsKey(n)) return memo[n];
+
+    memo[n] = Fib(n - 1) + Fib(n - 2);
+    return memo[n];
+}
+```
+
+### Trace of `Fib(4)` with memoization:
+
+1. Call `Fib(4)`
+2. It calls `Fib(3)` (not in memo)
+3. It calls `Fib(2)` (not in memo)
+4. It calls `Fib(1)` → base case, returns `1`
+5. It calls `Fib(0)` → base case, returns `0`
+6. Memoize `Fib(2) = 1`
+7. Return to `Fib(3)` → Fib(2) already known = 1, Fib(1) = 1
+8. Memoize `Fib(3) = 2`
+9. Now back at `Fib(4)` → Fib(3) = 2, Fib(2) = 1
+10. Memoize `Fib(4) = 3`
+
+### 🧠 Stack is Still Used, But:
+
+* **Repeated calls are skipped**
+* Values are **remembered in the `memo` dictionary**
+* Stack is shallower and faster
+
+
+## Visual Diagram Comparison
+
+### ❌ Without Memoization (Redundant Calls):
+
+```
+Fib(4)
+├── Fib(3)
+│   ├── Fib(2)
+│   │   ├── Fib(1)
+│   │   └── Fib(0)
+│   └── Fib(1)
+└── Fib(2)
+    ├── Fib(1)
+    └── Fib(0)
+```
+
+Notice: `Fib(2)`, `Fib(1)`, `Fib(0)` called multiple times
+
+
+### ✅ With Memoization:
+
+```
+Fib(4)
+├── Fib(3)
+│   └── Fib(2)
+        ├── Fib(1)
+        └── Fib(0)
+```
+
+Only **unique subproblems** are computed once and reused.
+
+
+## Summary
+
+| Concept         | Without Memoization     | With Memoization                  |
+| --------------- | ----------------------- | --------------------------------- |
+| Stack Frames    | Many, some repeated     | Fewer, reused calls               |
+| Performance     | Exponential time O(2^n) | Linear time O(n)                  |
+| Memory Use      | Call stack can get deep | Uses dictionary + shallower stack |
+| Redundant Calls | Yes                     | Avoided                           |
