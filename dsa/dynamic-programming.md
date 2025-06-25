@@ -80,13 +80,18 @@ int Fib(int n) {
 ```csharp
 int Fib(int n) {
     if (n <= 1) return n;
-    int[] dp = new int[n + 1];
-    dp[0] = 0;
-    dp[1] = 1;
+    
+    int prev2 = 0; // Fib(0)
+    int prev1 = 1; // Fib(1)
+    int current = 0;
+
     for (int i = 2; i <= n; i++) {
-        dp[i] = dp[i - 1] + dp[i - 2];
+        current = prev1 + prev2;
+        prev2 = prev1;
+        prev1 = current;
     }
-    return dp[n];
+
+    return current;
 }
 ```
 
@@ -109,13 +114,53 @@ Fib(3) Fib(2) Fib(2) Fib(1)
 
 Notice how **Fib(3)** and **Fib(2)** appear multiple times. DP saves their results to avoid recomputation.
 
-## Memoization vs Tabulation
 
-| Feature     | Memoization (Top-Down) | Tabulation (Bottom-Up)   |
-| ----------- | ---------------------- | ------------------------ |
-| Approach    | Recursive + Cache      | Iterative + Table        |
-| Stack usage | High (recursive stack) | Low                      |
-| Code style  | Intuitive              | Efficient for time/space |
+## Top-Down (Memoization) vs Bottom-Up (Tabulation)
+
+| Criteria                        | Top-Down (Memoization)                                  | Bottom-Up (Tabulation)                        |
+| ------------------------------- | ------------------------------------------------------- | --------------------------------------------- |
+| **Approach**                    | Recursive + cache                                       | Iterative + table                             |
+| **Ease of Implementation**      | Often more intuitive, especially for recursive problems | May require careful planning for loop order   |
+| **Space Usage**                 | Uses recursion stack + memo table                       | Uses only DP table (can be optimized further) |
+| **Performance**                 | Slightly slower due to recursion overhead               | Generally faster (no recursion overhead)      |
+| **Stack Overflow Risk**         | Yes (for deep recursion)                                | No (safe for large inputs)                    |
+| **When All Subproblems Needed** | Inefficient in such cases                               | More efficient                                |
+| **Can Optimize Space?**         | Not always easy                                         | Often yes (e.g., with two variables)          |
+| **Use Case Examples**           | Tree-based problems, game recursion, DFS-style DP       | Grid problems, Knapsack, Fibonacci, LIS       |
+
+
+## When to Prefer Each Approach
+
+### Use **Top-Down (Memoization)** When:
+
+* The problem has a **natural recursive structure** (e.g., tree problems).
+* You may **not need to compute all subproblems**.
+* You're solving problems with **variable or selective recursion**.
+* Readability and simplicity are important.
+* Examples:
+
+  * Recursive tree DP (e.g., finding diameter of a tree)
+  * Game state evaluation (e.g., can player win?)
+  * Word break problem
+
+### Use **Bottom-Up (Tabulation)** When:
+
+* All subproblems are guaranteed to be needed to compute the final answer.
+* You want **better performance** by avoiding recursion overhead.
+* You want to **optimize space**, especially in linear DP cases.
+* You want to write an **iterative and memory-efficient solution**.
+* Examples:
+
+  * 0/1 Knapsack
+  * Longest Common Subsequence (LCS)
+  * Coin Change
+  * Longest Increasing Subsequence (LIS)
+
+
+## Heuristic Rule of Thumb
+
+* If your recursive function revisits the **same states**, and recursion is **natural**, start with **Top-Down + Memoization**.
+* If you're computing all values in **a range or table**, and recursion is not necessary, prefer **Bottom-Up Tabulation**.
 
 
 ## How to Approach a DP Problem (Step-by-Step)
@@ -136,33 +181,6 @@ Notice how **Fib(3)** and **Fib(2)** appear multiple times. DP saves their resul
 
 6. **Implement and Optimize**
    Use space/time optimizations if needed.
-
-
-## Example: Climbing Stairs
-
-> Each time you can climb 1 or 2 steps. How many distinct ways to reach the top (n steps)?
-
-### DP Formula:
-
-```
-ways(n) = ways(n-1) + ways(n-2)
-```
-
-### C# Code:
-
-```csharp
-int ClimbStairs(int n) {
-    if (n <= 2) return n;
-    int first = 1, second = 2, result = 0;
-    for (int i = 3; i <= n; i++) {
-        result = first + second;
-        first = second;
-        second = result;
-    }
-    return result;
-}
-```
-
 
 ## Popular use cases:
 
