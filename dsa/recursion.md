@@ -321,3 +321,83 @@ So, the final return value is **6**.
 | 8    | `Factorial(3)` returns 3×2 |                                                             |
 
 
+Great question — it touches on the **core of how recursion really works**.
+
+Let’s clarify it:
+
+---
+
+## ❓ Does Recursion "Remember" Previous Return Values?
+
+**No, recursion itself doesn't automatically "remember" previous return values.**
+Instead, it relies on the **call stack** to hold the state (arguments, local variables, return values) for each recursive call.
+
+So, it’s not that recursion "remembers" — it's that **each recursive call is paused and stored** on the call stack until its recursive sub-call finishes and returns a value.
+
+## How Return Values Are Passed Back
+
+Here’s how it works step by step:
+
+### Example:
+
+```csharp
+int Factorial(int n) {
+    if (n == 0) return 1;
+    return n * Factorial(n - 1);
+}
+```
+
+If you call `Factorial(3)`, here’s what happens:
+
+1. `Factorial(3)` → needs `Factorial(2)`
+2. `Factorial(2)` → needs `Factorial(1)`
+3. `Factorial(1)` → needs `Factorial(0)`
+4. `Factorial(0)` → returns `1`
+
+Now it unwinds:
+
+* `Factorial(1)` returns `1 * 1 = 1`
+* `Factorial(2)` returns `2 * 1 = 2`
+* `Factorial(3)` returns `3 * 2 = 6`
+
+**Each return value is passed up** to the previous frame. The call stack ensures the correct value goes to the right function.
+
+## What Does the Call Stack Store?
+
+Each function call stores:
+
+* The **arguments** passed in
+* The **local variables**
+* The **return address** (where to continue after the call returns)
+
+That’s how C# knows exactly where to continue once a recursive call finishes — it **doesn’t "remember" values**, it just **waits for them** and resumes execution.
+
+
+## If You Want to "Remember" Return Values
+
+If you want to actually **cache or reuse** return values (like in DP), you must implement that yourself using:
+
+### Memoization Example:
+
+```csharp
+Dictionary<int, int> memo = new();
+
+int Fib(int n) {
+    if (n <= 1) return n;
+    if (memo.ContainsKey(n)) return memo[n];
+
+    memo[n] = Fib(n - 1) + Fib(n - 2);
+    return memo[n];
+}
+```
+
+Now you are explicitly **storing results** so you don’t compute them again.
+
+## Summary
+
+| Concept          | Behavior                               |
+| ---------------- | -------------------------------------- |
+| Recursion        | Calls itself and waits for return      |
+| Call stack       | Remembers state of each call           |
+| Return value     | Passed back after base case is reached |
+| Memoization (DP) | Stores results for reuse across calls  |
