@@ -1,8 +1,136 @@
 # How code execution works?
 
-Great question. Let’s clearly break down **stack frames** and the **call stack**, especially in the context of recursion and debugging.
+Understanding **how memory is allocated** in .NET (or any modern runtime) is crucial, especially for interviews and debugging performance issues.
+
+Let’s break down **Stack vs Heap memory** clearly, in the context of C#/.NET.
+
+
+## 🔹 Overview: Stack vs Heap
+
+| Aspect           | Stack                                                 | Heap                                                    |
+| ---------------- | ----------------------------------------------------- | ------------------------------------------------------- |
+| **Usage**        | Stores **local variables** and **function call data** | Stores **objects**, reference types, and dynamic memory |
+| **Memory Type**  | Small, fast, structured memory                        | Large, slower, flexible memory                          |
+| **Allocation**   | Automatically managed (LIFO)                          | Managed by **Garbage Collector**                        |
+| **Lifetime**     | Ends when function ends                               | Continues until GC removes it                           |
+| **Access Speed** | Very fast                                             | Slower (needs pointer dereferencing)                    |
+| **Thread-safe**  | Yes — each thread has its own stack                   | No — needs synchronization                              |
+
+
+## 🔹 What Goes Where?
+
+### ✅ Stored on the **Stack**:
+
+* Value types (like `int`, `bool`, `char`, `struct`) declared as **local variables** in methods.
+* Function parameters (if value types).
+* Return addresses, stack frames for function calls.
+
+```csharp
+void Foo() {
+    int x = 10;           // x is on the stack
+}
+```
+
+
+### ✅ Stored on the **Heap**:
+
+* **Reference types** (classes, arrays, strings, delegates, etc.).
+* Any object created using `new`.
+* Members of reference types (even if value types).
+
+```csharp
+class Person {
+    public int Age;
+}
+
+void Bar() {
+    Person p = new Person();   // p is a reference on stack, actual object is on heap
+    p.Age = 30;                // Age is stored on heap as part of the object
+}
+```
+
+
+## 🔄 Example: Stack + Heap Together
+
+```csharp
+class Book {
+    public string Title;
+}
+
+void Run() {
+    int number = 5;              // Stack
+    Book b = new Book();         // 'b' is on stack, Book object is on heap
+    b.Title = "C# in Depth";     // Title is a string on heap
+}
+```
+
+* `number` → stored on **stack**
+* `b` → reference (pointer) on **stack**
+* `Book object` → stored on **heap**
+* `"C# in Depth"` → also on **heap** (strings are reference types)
+
+
+## 🔹 How Garbage Collection Works (for Heap)
+
+* The **.NET GC (Garbage Collector)** automatically frees memory from the heap when:
+
+  * An object is no longer **reachable** (no reference points to it).
+  * It runs in **generations** (Gen 0, 1, 2) to optimize performance.
+
+You don’t manually free heap memory in C# (unless using unmanaged resources + `Dispose()`).
+
+
+## 🔹 Struct vs Class: Stack vs Heap?
+
+* `struct` → value type → stored on the **stack** (unless inside a reference type).
+* `class` → reference type → stored on the **heap**
+
+```csharp
+struct Point { int X, Y; }
+class Shape { public Point P; }
+
+void Foo() {
+    Point pt = new Point();     // Entire struct is on the stack
+    Shape s = new Shape();      // s on stack, Shape object on heap, P on heap
+}
+```
+
+
+## 🔹 Summary Diagram
+
+```
+Method Call: Foo()
+--------------------------
+| Stack (LIFO)            |
+|------------------------|
+| Return address         |
+| Local int: x = 5       |
+| Reference: p (ptr)     |
+|------------------------|
+
+Heap (dynamic memory)
+--------------------------
+| Object: new Person()   |
+| → Age = 30             |
+|------------------------|
+| String: "Hello World"  |
+|------------------------|
+```
 
 ---
+
+## 🧠 Summary
+
+| Memory Area | Stores What                              | Managed By             | Lifetime                  |
+| ----------- | ---------------------------------------- | ---------------------- | ------------------------- |
+| Stack       | Local value types, method calls, frames  | Compiler/runtime       | Ends with method scope    |
+| Heap        | Objects, reference types, dynamic memory | .NET Garbage Collector | Until no reference exists |
+
+---
+
+# Call Stack and Stack Frame
+Let’s clearly break down **stack frames** and the **call stack**, especially in the context of recursion and debugging.
+
 
 ## 🔹 What is the **Call Stack**?
 
