@@ -1,4 +1,4 @@
-Here is the **complete, combined, and structured guide on Strings in DSA**, specially curated for interviews at **big tech companies** like Amazon, Google, Microsoft, Meta, and others. It includes all fundamental concepts, advanced approaches, techniques, and interview-focused problems with detailed explanations.
+Here is the **structured guide on Strings in DSA**, specially curated for interviews at **big tech companies** like Amazon, Google, Microsoft, Meta, and others. It includes all fundamental concepts, advanced approaches, techniques, and interview-focused problems with detailed explanations.
 
 ---
 
