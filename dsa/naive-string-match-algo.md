@@ -1,13 +1,9 @@
-The **Naive String Matching Algorithm** is the most basic and straightforward way to find a substring (called the **pattern**) within a larger string (called the **text**). It checks all possible positions in the text where the pattern could occur, one by one.
+# Naive String Matching Algorithm
 
----
-
-## 🔍 What is the Naive String Matching Algorithm?
-
+**Naive String Matching Algorithm** is the most basic and straightforward way to find a substring (called the **pattern**) within a larger string (called the **text**). It checks all possible positions in the text where the pattern could occur, one by one.
 The **naive approach** tries to match the pattern at every position of the text from left to right.
 If a mismatch is found, it shifts the pattern by one position and starts matching again.
 
----
 
 ## ⚙️ How It Works
 
@@ -23,7 +19,6 @@ The algorithm:
 3. If all characters match → pattern found.
 4. If mismatch → move pattern one position to the right and repeat.
 
----
 
 ## 🔁 Step-by-Step Example
 
@@ -43,7 +38,6 @@ Step 8: Compare text[7..10] = "ABCD" → ✅ match found at index 7
 
 So, matches are found at **index 3 and 7**.
 
----
 
 ## 🧮 Time and Space Complexity
 
@@ -58,7 +52,6 @@ So, matches are found at **index 3 and 7**.
 
 > **Space Complexity** = O(1) (no extra space is used)
 
----
 
 ## ✅ Advantages (Pros)
 
@@ -68,7 +61,6 @@ So, matches are found at **index 3 and 7**.
 | 🧠 No preprocessing    | No extra memory for LPS or hash tables |
 | 🧰 Works for all cases | No assumptions about input             |
 
----
 
 ## ❌ Disadvantages (Cons)
 
@@ -78,7 +70,6 @@ So, matches are found at **index 3 and 7**.
 | ⚠️ No optimization      | Doesn’t skip already matched characters               |
 | 🔁 Inefficient          | For repeated patterns or long texts, becomes too slow |
 
----
 
 ## 🧠 When to Use
 
@@ -86,7 +77,6 @@ So, matches are found at **index 3 and 7**.
 * For **educational purposes** to understand the basics of pattern matching.
 * When you need a **quick prototype** with minimum code.
 
----
 
 ## 🚫 When Not to Use
 
@@ -94,7 +84,6 @@ So, matches are found at **index 3 and 7**.
 * When you require **high performance** or real-time matching.
 * When patterns are searched **frequently** — better use KMP or Boyer-Moore.
 
----
 
 ## 🧪 C# Code Example of Naive Approach
 
@@ -119,7 +108,6 @@ void NaiveSearch(string text, string pattern)
 }
 ```
 
----
 
 ## 🔄 Comparison with Other Algorithms
 
