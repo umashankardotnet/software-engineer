@@ -155,23 +155,63 @@ Here's a **multi-region deployment plan for a .NET microservice system on AWS** 
 
 ## 1. **Architecture Overview**
 
+Here are **two correct variants**, depending on your compute choice:
+
+### **Option A: Serverless (Lambda-based Microservices)**
+
 ```
       🌍 Global Clients
             |
-         Route 53 (Geo/DNS Failover + Health Check)
+         Route 53 (Failover + Health Checks)
             |
- ┌──────────────┐        ┌──────────────┐
- | Region A     |        | Region B     |
- | (Primary)    |        | (Failover)   |
- └──────────────┘        └──────────────┘
-     |        |              |        |
- API GW   Lambda/ECS     API GW   Lambda/ECS
-     |        |              |        |
-DynamoDB Global Table    DynamoDB Global Table
-     |                         |
- EventBridge / SQS        EventBridge / SQS
-     |                         |
- Read Models (Redis)      Read Models (Redis)
+         CloudFront (optional)
+            |
+     ┌────────────────────────────┐
+     |       API Gateway (Regional) |
+     └────────────────────────────┘
+            |
+     ┌────────────┐
+     | AWS Lambda |
+     └────────────┘
+            |
+     ┌────────────────────┐
+     | DynamoDB Global Table |
+     └────────────────────┘
+            |
+     ┌────────────┐
+     | EventBridge |
+     └────────────┘
+```
+
+
+### **Option B: Container-based (ECS Fargate)**
+
+```
+      🌍 Global Clients
+            |
+         Route 53 (Latency/Failover Policy)
+            |
+         CloudFront (optional)
+            |
+     ┌────────────────────────────┐
+     |       API Gateway (Regional) |
+     └────────────────────────────┘
+            |
+     ┌──────────────────────────┐
+     | ALB (optional for ECS HTTP) |
+     └──────────────────────────┘
+            |
+     ┌────────────────────┐
+     | ECS Fargate Service |
+     └────────────────────┘
+            |
+     ┌────────────────────┐
+     | DynamoDB Global Table |
+     └────────────────────┘
+            |
+     ┌────────────┐
+     | EventBridge |
+     └────────────┘
 ```
 
 
