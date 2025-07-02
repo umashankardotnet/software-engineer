@@ -28,9 +28,9 @@ Below are some additional docs to read about scalability.
 - [CAP Theoram](https://www.youtube.com/watch?v=eWMgsk7mpFc)
     - [CAP & PACELC Theoram](https://blog.algomaster.io/p/cap-theorem-explained)
     - [CAP & PACELC Theorem Simplified - Video](https://www.youtube.com/watch?v=8UryASGBiR4)
-    
+- [BASE]()
 - [Idempotency](https://serverlessland.com/event-driven-architecture/idempotency)
-    - [Implement idempotent AWS Lambda functions](https://aws.amazon.com/blogs/compute/implementing-idempotent-aws-lambda-functions-with-powertools-for-aws-lambda-typescript/)
+- [Implement idempotent AWS Lambda functions](https://aws.amazon.com/blogs/compute/implementing-idempotent-aws-lambda-functions-with-powertools-for-aws-lambda-typescript/)
 - [distributed Messaging Queue]()
 - [distributed locking]()
 - [Cascading Failures](https://github.com/bhanu00/system-design/blob/main/cascading-failure.md)
