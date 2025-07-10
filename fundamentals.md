@@ -5,6 +5,7 @@
 - [What is System Design](https://www.youtube.com/watch?v=quLrc3PbuIw)
 - [Algorithms you must know before system design](https://www.youtube.com/watch?v=xbgzl2maQUU)
 - [SPOF](https://www.youtube.com/watch?v=-BOysyYErLY)
+- [Latency - Why it matters?, Latency, Bandwidth and Throughput](https://www.ibm.com/topics/latency)
 - [Scalability](https://www.youtube.com/watch?v=xpDnVSmNFX0) -
 Below are some additional docs to read about scalability.
     - [Scalability - doc](https://blog.algomaster.io/p/scalability)
@@ -24,10 +25,9 @@ Below are some additional docs to read about scalability.
         - [Cloud Infrastructure resiliency with Azure](https://learn.microsoft.com/en-us/dotnet/architecture/cloud-native/infrastructure-resiliency-azure)
         - [AWS Reliability](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/reliability.html)
         - [Azure Reliability](https://learn.microsoft.com/en-us/azure/reliability/overview)
-- [Latency - Why it matters?, Latency, Bandwidth and Throughput](https://www.ibm.com/topics/latency)
 - [CAP Theoram](https://www.youtube.com/watch?v=eWMgsk7mpFc)
     - [CAP & PACELC Theoram](https://blog.algomaster.io/p/cap-theorem-explained)
-    - [CAP & PACELC Theorem Simplified - Video](https://www.youtube.com/watch?v=8UryASGBiR4)
+    - [CAP](https://www.ibm.com/topics/cap-theorem)
 - [BASE]()
 - [Idempotency](https://serverlessland.com/event-driven-architecture/idempotency)
 - [Implement idempotent AWS Lambda functions](https://aws.amazon.com/blogs/compute/implementing-idempotent-aws-lambda-functions-with-powertools-for-aws-lambda-typescript/)
@@ -38,7 +38,6 @@ Below are some additional docs to read about scalability.
 - ### CDN
 - ### Edge Computing
 - ### Subnetting
-## [CAP Theorem](https://www.ibm.com/topics/cap-theorem)
 This document explains about Consistency ([Strong vs Week](https://www.geeksforgeeks.org/eventual-vs-strong-consistency-in-distributed-databases/)), Availability, Partition tolerance and detailed about CAP theorem.
 
 ## Load Balancing and algorithms
