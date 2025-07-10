@@ -275,7 +275,7 @@ for (int right = 0; right < s.Length; right++)
 * Handles dynamic conditions like longest, shortest, etc.
 
 
-## ❗ Important Caveats
+## Important Caveats
 
 * **Don’t use sliding window** if the elements are not **contiguous**
 * **Don’t use two pointer** if the problem involves **global searching**
