@@ -65,6 +65,7 @@ Based on the interview experiences shared, I'll help create a comprehensive prep
 **Common Interview Questions:**
 1. Technical:
 - Implement LRU Cache
+- LinkedList Implementation
 - Design patterns (especially Decorator, Observer)
 - Java concurrency problems
 - Microservices design principles
