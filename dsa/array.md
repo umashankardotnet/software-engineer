@@ -117,27 +117,87 @@ class TemperatureLogger
 
 ### Brute Force
 
-Nested loops for all combinations (O(n^2))
+* Try all combinations using nested loops
+* Time Complexity: O(n^2) or worse
+
+```csharp
+for (int i = 0; i < arr.Length; i++)
+    for (int j = i + 1; j < arr.Length; j++)
+        // logic
+```
 
 ### Sorting + Two Pointers
 
-Used for sum pairs, duplicates, etc. (O(n log n))
+* Sort array first, then use left/right pointers to search
+* Used in problems like Two Sum, Three Sum, etc.
+* Time Complexity: O(n log n) for sort + O(n) for scan
 
-### Hashing
+### Hashing (Dictionary or HashSet)
 
-For quick lookups, frequency count (O(n) time, O(n) space)
+* Store frequencies or fast lookups
+* Common in duplicate detection, pair sums
+* Time: O(n), Space: O(n)
 
 ### Sliding Window
 
-Used for subarray sums, averages, max (O(n) time)
+* Used for contiguous subarrays
+* Maintain a fixed-size or variable-size window while iterating
+* Time: O(n)
+
+```csharp
+int maxSum = 0, windowSum = 0;
+for (int i = 0; i < k; i++) windowSum += arr[i];
+for (int i = k; i < arr.Length; i++) {
+    windowSum += arr[i] - arr[i - k];
+    maxSum = Math.Max(maxSum, windowSum);
+}
+```
 
 ### Prefix Sum
 
-For range sums or subarrays (O(n) time, O(n) space)
+* Precompute cumulative sums to answer range queries quickly
+* Used in subarray sum problems
+* Time: O(n), Space: O(n)
 
 ### Binary Search
 
-For sorted arrays (O(log n))
+* Use when array is sorted
+* Can be used for exact match, bounds, peaks, etc.
+* Time: O(log n)
+
+### Kadane’s Algorithm
+
+* Maximum subarray sum in O(n)
+* Maintain a running sum and max
+
+### Stack/Queue
+
+* Use in monotonic stack problems, Next Greater Element, etc.
+* Queue is useful in sliding window max/min
+
+### Two Pointers
+
+* Used when array is sorted or when scanning from both ends
+* Common in duplicate removal, pair sums, palindrome check, etc.
+
+### Frequency Array
+
+* Use fixed-size arrays for counting characters/numbers when possible
+* Ideal for small fixed-size domains (e.g., lowercase letters)
+
+### Backtracking
+
+* Useful in permutations, combinations, subsets problems
+
+### Recursion + Memoization (DP)
+
+* Used when subproblems repeat, e.g., max path, coin change
+
+### Greedy
+
+* Used when local optimum leads to global optimum
+* Examples: Jump Game, Activity Selection
+
 
 ## 8. Best Practices
 
