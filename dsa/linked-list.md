@@ -486,3 +486,288 @@ public bool IsCircular(Node head)
 * **Singly LL**: Best when only forward traversal is needed.
 * **Doubly LL**: Prefer when you need back-and-forth traversal.
 * **Circular LL**: Ideal when you need to cycle through nodes (like scheduling).
+
+# 13 Most Powerful Techniques to Solve Linked List Problems (with Explanation)
+
+
+## 1. **Two-Pointer Technique (Slow & Fast)**
+
+### What is it?
+
+You maintain **two pointers**:
+
+* `slow`: moves 1 node at a time
+* `fast`: moves 2 nodes at a time
+
+### Why use it?
+
+* When `fast` reaches the end, `slow` will be in the **middle**.
+* If a cycle exists, `slow` and `fast` will **eventually meet**.
+* Helps avoid **counting nodes** manually.
+
+### Common Problems:
+
+* Find the middle of the list
+* Detect cycle in a list
+* Remove N-th node from end (two pointers with gap)
+
+
+## 2. **Reversal Technique**
+
+### What is it?
+
+Change the `.next` pointer of each node to **point to the previous** node.
+
+### Why use it?
+
+* Used to **compare** halves (e.g., in palindrome check)
+* Helps in **reordering** nodes
+* Can be used for in-place modifications (no extra memory)
+
+### Common Problems:
+
+* Reverse a linked list
+* Reverse nodes in k-groups
+* Check if the list is a palindrome
+
+
+## 3. **Dummy Node Pattern**
+
+### What is it?
+
+A dummy node is a **temporary starter node** used to:
+
+* Avoid handling edge cases like empty head or head deletion.
+* Help return `dummy.next` as the new head safely.
+
+### Why use it?
+
+Simplifies pointer manipulation logic and prevents **null reference errors**.
+
+### Common Problems:
+
+* Merge two sorted lists
+* Remove N-th node
+* Partition a list
+
+
+## 4. **Two Pointers with Fixed Gap (N-distance apart)**
+
+### What is it?
+
+Move one pointer `n` steps ahead of the other. Then move both together.
+
+### Why use it?
+
+When you want to **target a node from the end** without first counting total nodes.
+
+### Common Problems:
+
+* Remove N-th node from the end
+* Find K-th node from the end
+
+
+## 5. **Stack-Based Approach**
+
+### What is it?
+
+Push node values or references to a **stack** to reverse access order (LIFO).
+
+### Why use it?
+
+When you can’t modify the list but need to:
+
+* Traverse it backward
+* Compare head and tail values
+* Store partial state
+
+### Common Problems:
+
+* Check palindrome
+* Print list in reverse
+* Reverse k nodes without changing node links
+
+
+## 6. **Floyd's Cycle Detection (Tortoise & Hare)**
+
+### What is it?
+
+Use two pointers (slow and fast) to detect cycles:
+
+* If there's a loop, they'll **meet**.
+* To find **start of the loop**, reset one to head and move both by 1.
+
+### Why use it?
+
+Detect **circular dependency**, **infinite loops**, or **circular references**.
+
+### Common Problems:
+
+* Detect loop in linked list
+* Find starting node of cycle
+* Check for circular list
+
+
+## 7. **Recursion Technique**
+
+### What is it?
+
+Use the **call stack** for traversal, reversal, or comparing end-to-start.
+
+### Why use it?
+
+* Clean, elegant solutions (though stack memory is used)
+* Helpful in **reversal**, **print in reverse**, or **palindrome check**
+
+### Common Problems:
+
+* Print list in reverse
+* Reverse a list recursively
+* Palindrome linked list (recursively compare head ↔ tail)
+
+
+## 8. **Divide & Conquer**
+
+### What is it?
+
+Break the list into parts, solve independently, and **merge results**.
+
+### Why use it?
+
+Used when:
+
+* You need to **sort** the list (merge sort)
+* Convert a sorted list to a **balanced BST**
+
+### Common Problems:
+
+* Merge Sort on Linked List
+* Convert sorted LL to Binary Search Tree (BST)
+* Flatten a multilevel doubly linked list
+
+## 9. **Hashing / Dictionary**
+
+### What is it?
+
+Use a `HashSet` or `Dictionary` to store references (not just values).
+
+### Why use it?
+
+* Constant-time lookup for visited nodes
+* Useful when nodes contain **random pointers**
+
+### Common Problems:
+
+* Detect loop (alternative to Floyd’s)
+* Clone a linked list with random pointers
+* Remove duplicates (unsorted list)
+
+
+## 10. **In-place Manipulation with Constant Memory**
+
+### What is it?
+
+Modify pointers directly without extra space (no stacks, arrays, or hashsets).
+
+### Why use it?
+
+Used to meet space constraints in problems like:
+
+* Palindrome check (O(1) space)
+* Reordering/reversing parts of the list
+
+### Common Problems:
+
+* Reorder list
+* Flatten multilevel list
+* Reverse nodes in-place
+
+
+## 11. **Tail Pointer / Circular Pointers**
+
+### What is it?
+
+Keep track of the **last node** (especially in DLL or CLL) for fast insertion.
+
+### Why use it?
+
+* Prevents re-traversing from head to tail
+* Required for CLL (to loop back to head)
+
+### Common Problems:
+
+* Append to circular list
+* Rotate list
+* Circular buffer implementation
+
+
+## 12. **Partitioning / Splitting the List**
+
+### What is it?
+
+Divide list into segments based on:
+
+* Value conditions (like partition around `x`)
+* Position (even/odd, front/back halves)
+
+### Why use it?
+
+Simplifies restructuring, sorting, and conditional groupings.
+
+### Common Problems:
+
+* Partition list around a value (Leetcode 86)
+* Reorder list in alternate fashion
+* Segregate odd/even or 0s, 1s, 2s
+
+
+## 13. **Greedy + Linked List**
+
+### What is it?
+
+Make **locally optimal choices** while traversing and adjusting pointers on the go.
+
+### Why use it?
+
+Used when the problem involves:
+
+* Maximizing/minimizing value
+* Sorting/merging using immediate decisions
+
+### Common Problems:
+
+* Insert into sorted list
+* Merge k sorted lists using min-heap
+* Remove duplicates from sorted list
+
+
+## Real-World Problem Mapping (With Techniques)
+
+| Problem                             | Technique(s) Used                              |
+| ----------------------------------- | ---------------------------------------------- |
+| **Reverse a linked list**           | Reversal (iterative/recursive)                 |
+| **Detect a cycle**                  | Floyd’s Cycle Detection                        |
+| **Palindrome check**                | Reverse + Two-pointer + Stack                  |
+| **Remove N-th node from end**       | Two-pointer gap + Dummy node                   |
+| **Merge two sorted lists**          | Dummy node + Two-pointer                       |
+| **LRU Cache**                       | DLL + HashMap + Tail tracking                  |
+| **Clone list with random pointers** | HashMap + Recursion + Two-pass                 |
+| **Merge K sorted lists**            | Divide & Conquer / Min Heap + Dummy node       |
+| **Reorder list**                    | Middle node + Reversal + In-place interleaving |
+| **Flatten multilevel DLL**          | Recursion + In-place pointers                  |
+
+
+## Summary Table
+
+| Technique               | Space Efficient | Handles Edge Cases   | Easy to Debug      |
+| ----------------------- | --------------- | -------------------- | ------------------ |
+| Two-pointer (slow/fast) | ✅               | ❌ (needs null check) | ✅                  |
+| Reversal                | ✅               | ❌ (watch for null)   | ✅                  |
+| Dummy node              | ✅               | ✅                    | ✅                  |
+| Stack                   | ❌               | ✅                    | ✅                  |
+| Recursion               | ❌               | ✅                    | ❌ (stack overflow) |
+| Hashing                 | ❌               | ✅                    | ✅                  |
+| Divide & Conquer        | ✅               | ✅                    | ❌ (complex logic)  |
+| In-place                | ✅               | ❌                    | ❌                  |
+
+
