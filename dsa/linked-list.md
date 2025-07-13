@@ -1,12 +1,9 @@
-#complete guide to Linked Lists
+# Complete guide to Linked Lists
 Here’s a **complete guide to Linked Lists** with real-world **use cases**, **C# implementation**, and **commonly asked interview problems**.
-
-
-## 📌 What is a Linked List?
 
 A **Linked List** is a **linear data structure** where elements (called **nodes**) are stored **non-contiguously** in memory and each node points to the **next** node.
 
-### 🔹 Structure of a Node
+### Structure of a Node
 
 ```csharp
 public class Node
@@ -31,9 +28,8 @@ public class Node
 | **Doubly Linked List**   | Each node has `next` and `prev` pointers.          |
 | **Circular Linked List** | Last node points back to the first node.           |
 
----
 
-## 📦 Real-World Use Cases
+## Real-World Use Cases
 
 | Use Case                                    | Description                                       |
 | ------------------------------------------- | ------------------------------------------------- |
