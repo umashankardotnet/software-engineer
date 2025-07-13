@@ -198,6 +198,47 @@ for (int i = k; i < arr.Length; i++) {
 * Used when local optimum leads to global optimum
 * Examples: Jump Game, Activity Selection
 
+### Reversal Technique (Rotation)
+
+Used to rotate an array left or right with O(n) time and O(1) space.
+
+**Left Rotation Example:**
+
+```csharp
+public static void RotateLeft(int[] arr, int d)
+{
+    int n = arr.Length;
+    d = d % n;
+    Reverse(arr, 0, d - 1);
+    Reverse(arr, d, n - 1);
+    Reverse(arr, 0, n - 1);
+}
+```
+
+**Right Rotation Example:**
+
+```csharp
+public static void RotateRight(int[] arr, int d)
+{
+    int n = arr.Length;
+    d = d % n;
+    Reverse(arr, 0, n - 1);
+    Reverse(arr, 0, d - 1);
+    Reverse(arr, d, n - 1);
+}
+
+private static void Reverse(int[] arr, int start, int end)
+{
+    while (start < end)
+    {
+        int temp = arr[start];
+        arr[start] = arr[end];
+        arr[end] = temp;
+        start++;
+        end--;
+    }
+}
+```
 
 ## 8. Best Practices
 
@@ -218,3 +259,6 @@ for (int i = k; i < arr.Length; i++) {
 * `LinkedList<T>`: For frequent insertions/removals
 * `Dictionary<TKey, TValue>`: For key-value mappings
 * `Queue<T>` / `Stack<T>`: For FIFO/LIFO access patterns
+
+
+This guide provides a solid foundation in arrays and related operations in C#. For interviews, practice problems like Two Sum, Sliding Window Max, and Matrix Traversals to reinforce these concepts.
