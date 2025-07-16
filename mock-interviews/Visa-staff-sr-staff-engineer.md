@@ -34,11 +34,26 @@
 ### 🔹 Coding & DSA:
 
 * Implement LRU Cache.
+* Implement HashMap/ Dictionary
 * Reverse a Linked List.
 * Level order traversal of a binary tree.
 * Coin Change Problem.
+* Reverse Polish notation
+* Rotate the substring from each given index to the end of the string one step to the right, in order.
 * Graph traversal / flatten linked list / rotate string.
 * Nearest Coffee Machine problem.
+* Reverse an Integer
+* Find Max Depth of Binary Tree
+* Coin Change Problem
+* Count minimum number of fountains to be activated to cover the entire garden
+* Minimum possible sum of array elements after performing the given operation
+* Design random number generator
+* Flatten a linked list
+* Level order traversal of a tree, printing each level separately
+* Insert a node at the kth position in a linked list
+* Matrix addition
+* Find the LCM (Least Common Multiple) of elements in an array
+* Access a linked list node at some arbitrary position 
 
 ### 🔹 System Design:
 
@@ -47,6 +62,7 @@
 * Monitoring system design (observability, alerts).
 * Design YouTube-like scalable video platform.
 * Kafka consumer group rebalancing handling.
+* Design loan application system
 
 ### 🔹 .NET/Java/Core Tech:
 
@@ -54,6 +70,14 @@
 * Functional Interfaces, Streams, .NET/Java 8 features.
 * Observer, Decorator, Singleton design patterns.
 * .NET, Web API/Spring Boot basics, RESTful services, security.
+* What are the various standards for Microservices?
+* Difference between REST and SOAP?
+* SOLID principles, Full OOD, Design patterns
+* Architecture related questions on Spring, security, authentication, authorization. Scalability, a leet code easy problem, threading questions.
+* Problem on linked list. Questions on tree, phone book, behavioral questions. What UI technologies i worked on
+* Web services, Caching, Performance improvement
+* Sql injection
+* Project architecture, ORM, HashTable, Hashset, Dictionary, sql, index
 
 ### 🔹 Behavioural:
 
