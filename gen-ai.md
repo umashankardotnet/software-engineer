@@ -1,2 +1,3 @@
+-[Agentic AI](https://aws.amazon.com/ai/agentic-ai/?nc2=h_l1_f)
 - [Integrating C# Model Context Protocol servers with Amazon Q Developer CLI](https://aws.amazon.com/blogs/dotnet/integrating-c-model-context-protocol-servers-with-amazon-q-developer-cli/)
 - [RAG vs. MCP](https://dev.to/aws/how-rag-mcp-solve-model-limitations-differently-pjm)
