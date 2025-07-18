@@ -53,7 +53,8 @@
 * Insert a node at the kth position in a linked list
 * Matrix addition
 * Find the LCM (Least Common Multiple) of elements in an array
-* Access a linked list node at some arbitrary position 
+* Access a linked list node at some arbitrary position
+* Quick Sort & Merge Sort
 
 ### 🔹 System Design:
 
@@ -78,6 +79,7 @@
 * Web services, Caching, Performance improvement
 * Sql injection
 * Project architecture, ORM, HashTable, Hashset, Dictionary, sql, index
+* Java Script/ Angular
 
 ### 🔹 Behavioural:
 
