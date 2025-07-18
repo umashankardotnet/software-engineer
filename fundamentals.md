@@ -51,6 +51,7 @@ This document explains about Consistency ([Strong vs Week](https://www.geeksforg
     - Consistent Hashing
 
 ## API Development
+  - Rate Limiting
   - [When to Use Webhooks, WebSocket, Pub/Sub, and Polling] (https://hookdeck.com/webhooks/guides/when-to-use-webhooks)
   - [Webhook vs. API](https://zapier.com/blog/webhook-vs-api/)
   - [Different Ways to create API]
@@ -59,8 +60,15 @@ This document explains about Consistency ([Strong vs Week](https://www.geeksforg
   - [Open API Spec] (https://swagger.io/specification/)
 
 ## Security 
+- Authentication/Authorization
 - [TLS Termination - Types, Uses, Benefits]()
 - [How SSL/TLS works when connecting to anything]()
+- mTLS for internal services
+- OAuth2 / OIDC for clients
+- Encryption at rest (AWS KMS) & in transit (TLS 1.2/1.3)
+- Secrets Management
+- [Token Types](https://cloud.google.com/docs/authentication/token-types)
+- [JWT Tokens](https://jwt.io/introduction/)
 
 ## [SQL vs NoSQL](https://www.ibm.com/blog/sql-vs-nosql/)
 ## Caching
@@ -72,10 +80,6 @@ Know more about Caching, Cache Hit, Cache Miss, Cache Invalidation Strategy
 ## Disaster Recovery Solutions
 - [Disaster Recovery (DR) Architecture on AWS](https://aws.amazon.com/blogs/architecture/disaster-recovery-dr-architecture-on-aws-part-i-strategies-for-recovery-in-the-cloud/)
 - Dive deep into [Disaster Recovery of Workloads on AWS: Recovery in the Cloud](https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/introduction.html)
-
-## Authentication and Authorization
-- [Token Types](https://cloud.google.com/docs/authentication/token-types)
-- [JWT Tokens](https://jwt.io/introduction/)
 
 ## Software Diagrams
 - [Sequence Diagrams] - TODO , Lucide Chart we can use to create sequence diagrams [Sequence daigram with Lucid](https://www.youtube.com/watch?v=pCK6prSq8aw).
