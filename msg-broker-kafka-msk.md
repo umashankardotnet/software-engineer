@@ -28,6 +28,18 @@ Apache Kafka is a **distributed event streaming platform** used to build real-ti
 
 
 ## Part 3: Kafka/MSK Core Concepts
+### Why Consumer Groups?
+
+**Scalability**: Multiple consumers in a group can read from different partitions of the same topic, enabling parallel processing.
+
+**Fault Tolerance**: If a consumer crashes, Kafka redistributes its partitions to other consumers in the group.
+
+**Load Balancing**: Partitions are evenly assigned among all consumers in the group.
+
+**No Duplication**: Each message is consumed by exactly one consumer in a group.
+
+**Example:**
+If you have a topic with 6 partitions and 3 consumers in the same group, each consumer will be assigned 2 partitions. Without a group, each consumer would process all 6 partitions, causing duplication.
 
 ### Partitioning
 
