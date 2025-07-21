@@ -51,7 +51,7 @@ This document explains about Consistency ([Strong vs Week](https://www.geeksforg
     - Consistent Hashing
 
 ## API Development
-  - Rate Limiting
+  - [Rate Limiting](fixed window, sliding window, token bucket, concurrency)
   - [When to Use Webhooks, WebSocket, Pub/Sub, and Polling] (https://hookdeck.com/webhooks/guides/when-to-use-webhooks)
   - [Webhook vs. API](https://zapier.com/blog/webhook-vs-api/)
   - [Different Ways to create API]
