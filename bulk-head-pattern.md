@@ -226,21 +226,195 @@ services.AddDbContext<PaymentDbContext>(options =>
 If Fraud Detection API is slow and its 10-thread pool is blocked, **Visa API (20-thread pool)** and DB writes **continue unaffected**.
 
 
-# **11. Key Benefits**
+## **11. Key Benefits**
 
 * **Fault isolation** – One service’s failure does not bring down the whole system.
 * **Improved availability** – System stays partially operational.
 * **Prevents cascading failures** – Protects critical paths.
 * **Supports graceful degradation** – Non-critical services fail without affecting critical ones.
 
+# With vs. Without the Bulkhead Pattern
+Here’s a **side-by-side code comparison** of a Payment + Fraud + Notification microservice setup **with vs. without the Bulkhead Pattern**.
 
 
-# **Summary (One Line)**
+## **1. Without Bulkhead Pattern**
 
-**The Bulkhead Pattern partitions resources (threads, connections, containers) so failures in one area do not affect others, ensuring resilience and high availability.**
+### **Single Shared Resources**
+
+* **One DbContext** for all workflows.
+* **One HttpClient** for all external calls.
+* **Single Thread Pool** (default `ThreadPool`).
+
+```csharp
+// Startup.cs or Program.cs
+
+// Single DbContext
+services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlServer(Configuration.GetConnectionString("MainDB")));
+
+// Single HttpClient for all external services
+services.AddHttpClient("MainClient", client =>
+{
+    client.BaseAddress = new Uri("https://external-api.com");
+});
+
+// Example usage
+public class PaymentService
+{
+    private readonly HttpClient _client;
+    private readonly AppDbContext _db;
+
+    public PaymentService(IHttpClientFactory factory, AppDbContext db)
+    {
+        _client = factory.CreateClient("MainClient");
+        _db = db;
+    }
+
+    public async Task ProcessPayment()
+    {
+        // Fraud check, Payment call, and Notifications use the same HttpClient + DB pool
+        await _client.GetAsync("/fraud-check");
+        await _client.PostAsync("/process-payment", null);
+        await _db.Payments.AddAsync(new Payment { Amount = 100 });
+        await _db.SaveChangesAsync();
+    }
+}
+```
+
+### **Problems:**
+
+* If **Fraud Detection API** hangs, it blocks all requests (thread pool is consumed).
+* **DB connection pool** is shared, so a spike in notifications can block payments.
+* A **single failure cascades** through the system.
 
 
+## **2. With Bulkhead Pattern**
 
-### **Next Step**
+### **Separate Resources per Workflow**
 
-Would you like me to create a **visual architecture diagram** (Payment + Fraud + Notification microservices) showing **Bulkhead partitions (HTTP clients, DB pools, Kafka consumers)** and how **.NET and AWS components** are mapped?
+* **Different DbContexts** with `Application Name` and `Max Pool Size`.
+* **Separate HttpClient pools** for each external API.
+* **Bulkhead policies (via Polly)** to limit concurrent calls.
+
+
+### **Startup.cs or Program.cs**
+
+```csharp
+// Separate DbContexts
+services.AddDbContext<PaymentDbContext>(options =>
+    options.UseSqlServer(Configuration.GetConnectionString("PaymentDB") + ";Application Name=Payment;Max Pool Size=50"));
+
+services.AddDbContext<FraudDetectionDbContext>(options =>
+    options.UseSqlServer(Configuration.GetConnectionString("FraudDB") + ";Application Name=FraudDetection;Max Pool Size=20"));
+
+services.AddDbContext<NotificationDbContext>(options =>
+    options.UseSqlServer(Configuration.GetConnectionString("NotificationDB") + ";Application Name=Notification;Max Pool Size=10"));
+
+// Separate HttpClients with Bulkhead
+services.AddHttpClient("VisaAPI", client =>
+{
+    client.BaseAddress = new Uri("https://visa-api.com");
+})
+.AddPolicyHandler(Policy.BulkheadAsync<HttpResponseMessage>(20, 50));
+
+services.AddHttpClient("FraudDetectionAPI", client =>
+{
+    client.BaseAddress = new Uri("https://fraud-api.com");
+})
+.AddPolicyHandler(Policy.BulkheadAsync<HttpResponseMessage>(10, 30));
+```
+
+
+### **PaymentService (Using Isolated Resources)**
+
+```csharp
+public class PaymentService
+{
+    private readonly HttpClient _visaClient;
+    private readonly PaymentDbContext _db;
+
+    public PaymentService(IHttpClientFactory factory, PaymentDbContext db)
+    {
+        _visaClient = factory.CreateClient("VisaAPI");
+        _db = db;
+    }
+
+    public async Task ProcessPayment()
+    {
+        await _visaClient.PostAsync("/process-payment", null);
+        await _db.Payments.AddAsync(new Payment { Amount = 100 });
+        await _db.SaveChangesAsync();
+    }
+}
+```
+
+
+### **FraudDetectionService**
+
+```csharp
+public class FraudDetectionService
+{
+    private readonly HttpClient _fraudClient;
+    private readonly FraudDetectionDbContext _db;
+
+    public FraudDetectionService(IHttpClientFactory factory, FraudDetectionDbContext db)
+    {
+        _fraudClient = factory.CreateClient("FraudDetectionAPI");
+        _db = db;
+    }
+
+    public async Task CheckFraud()
+    {
+        await _fraudClient.GetAsync("/fraud-check");
+        await _db.Logs.AddAsync(new FraudLog { Status = "Checked" });
+        await _db.SaveChangesAsync();
+    }
+}
+```
+
+
+### **NotificationService**
+
+```csharp
+public class NotificationService
+{
+    private readonly NotificationDbContext _db;
+
+    public NotificationService(NotificationDbContext db)
+    {
+        _db = db;
+    }
+
+    public async Task SendNotification(string message)
+    {
+        await _db.Notifications.AddAsync(new Notification { Message = message });
+        await _db.SaveChangesAsync();
+    }
+}
+```
+
+
+## **3. Key Differences**
+
+| **Aspect**     | **Without Bulkhead**               | **With Bulkhead**                               |
+| -------------- | ---------------------------------- | ----------------------------------------------- |
+| **DbContext**  | Shared single pool                 | Separate pools (`PaymentDbContext`, etc.)       |
+| **HttpClient** | Single HttpClient                  | Separate HttpClient pools (Visa, Fraud, etc.)   |
+| **Isolation**  | No isolation (all share resources) | Fault isolation (one failure doesn’t block all) |
+| **Resilience** | Low                                | High                                            |
+
+---
+
+## **4. What Happens Under Load?**
+
+* **Without Bulkhead:**
+  A spike in **Fraud API calls** can consume **all threads + DB connections**, blocking payments and notifications.
+
+* **With Bulkhead:**
+  **Fraud Detection** may hit its **10-connection pool limit**, but Payment (50 connections) and Notification (10 connections) **continue unaffected**.
+
+
+## **Summary (One Line)**
+
+The Bulkhead Pattern partitions resources (threads, connections, containers) so failures in one area do not affect others, ensuring resilience and high availability.
+
