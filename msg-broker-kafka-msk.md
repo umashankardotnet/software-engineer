@@ -164,7 +164,85 @@ If you have a topic with 6 partitions and 3 consumers in the same group, each co
 * Events persist in Kafka for a configured retention period (default: 7 days).
 * Producers can include a unique `messageId` and `partitionKey` in each message payload to enable idempotent processing and ordered routing.
 
+## Part 7: Partition Count Strategy & Consumer Parallelism
+
+### How to Decide Partition Count?
+
+**Factors:**
+
+1. **Throughput needs** – Each partition has a max throughput (e.g., 5 MB/sec). For 50 MB/sec, use at least 10 partitions.
+2. **Parallelism (Consumers)** – You can have up to one active consumer per partition in a group.
+3. **Ordering constraints** – All events for a key (e.g., `transactionId`) must go to one partition.
+4. **Future scalability** – Overprovision partitions to avoid repartitioning.
+
+**Rule of Thumb Formula:**
+
+```
+partitions = max(
+    (desired_throughput / throughput_per_partition),
+    number_of_parallel_consumers
+)
+```
+
+### Example
+
+* **Scenario:** Payment events at 50 MB/sec.
+* **Per partition capacity:** 5 MB/sec.
+* **Consumers needed:** 5 instances.
+* **Partitions:** `max(50/5, 5) = 10`.
+
+### Consumer Model
+
+* **10 partitions**, **5 consumer instances**.
+* **Assignments:**
+
+  * C1 → P0, P1
+  * C2 → P2, P3
+  * C3 → P4, P5
+  * C4 → P6, P7
+  * C5 → P8, P9
+
 ---
+
+## Part 5: Scaling & Multi-AZ Strategy
+
+* **Scaling a Single Microservice:** Payment service can run as 5 instances consuming from the same topic.
+* **Consumer Group:** All 5 instances share the same `GroupId` (e.g., `payment-service-group`). Kafka ensures partition assignment.
+* **Multi-AZ Deployment:** Spread consumers across 2-3 AZs (e.g., 2 in AZ-A, 2 in AZ-B, 1 in AZ-C).
+* **Rebalancing:** If an instance fails, partitions are reassigned to other active instances.
+* **Elastic Scaling:** Add or remove instances dynamically (e.g., via ECS/EKS autoscaling).
+
+---
+
+## Part 6: Payment Platform Use Case
+
+**Scenario:** Multiple payment devices and gateways generate events:
+
+* `transaction_initiated`, `transaction_approved`, `transaction_failed`, `device_heartbeat`.
+
+**Architecture:**
+
+```
+[ Payment Devices / Gateways ]
+        |
+        v
+[ .NET Kafka Producers (key = transactionId/deviceId) ]
+        |
+        v
+[ AWS MSK Topic: payment-events (10 partitions) ]
+        |
+        v
+[ Payment Service (5 instances, 1 consumer group) ]
+        |
+        +--> Fraud Detection
+        +--> Notification Service
+```
+
+**Partition Key:** `transactionId` or `deviceId`.
+
+* Ensures **ordering of events per device/transaction**.
+* Balances traffic across partitions.
+
 
 ## Part 7: .NET Integration Example
 
@@ -333,3 +411,4 @@ These must be processed in real-time by various microservices like:
 ## Summary
 
 AWS MSK combines the power of Apache Kafka with the ease of AWS managed services. It’s a highly scalable and reliable solution for building event-driven, real-time applications using .NET or any other platform. Mastering Kafka/MSK and partition keys enables you to design systems with strong ordering guarantees, durability, and performance.
+
