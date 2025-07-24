@@ -34,6 +34,7 @@ Below are some additional docs to read about scalability.
 - [distributed Messaging Queue]()
 - [distributed locking]()
 - [Cascading Failures](https://github.com/bhanu00/system-design/blob/main/cascading-failure.md)
+- [Polling Long vs Short]()
 
 - ### CDN
 - ### Edge Computing
