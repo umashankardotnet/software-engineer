@@ -406,7 +406,50 @@ These must be processed in real-time by various microservices like:
 * **Cooperative Rebalancing**: Reduces downtime during rebalancing.
 * **Custom Partitioner**: For advanced routing logic.
 
----
+## 🔁 Kafka Partition and Consumer Mapping (New Section)
+
+### 📘 Basic Rule:
+
+* One partition = max one consumer in a consumer group
+* One consumer = can read from multiple partitions
+
+### 🎯 Example:
+
+| Partition   | Assigned Consumer |
+| ----------- | ----------------- |
+| partition-0 | consumer-A        |
+| partition-1 | consumer-B        |
+| partition-2 | consumer-C        |
+| partition-3 | consumer-A        |
+
+### 🔄 Rebalancing:
+
+Triggered by:
+
+* New consumers joining
+* Failures
+* Partition changes
+
+Kafka pauses consumption, reassigns, and resumes.
+
+### 🧭 Partition Key Role:
+
+* **At Producer Side**:
+
+  * Ensures events with same key go to same partition
+  * Guarantees ordering within that key
+
+* **At Consumer Side**:
+
+  * Helps to maintain affinity (e.g., device-level order)
+  * Not directly used, but **impacts assignment due to partitioning**
+
+### 🔢 How to Decide Partition Count:
+
+* Estimate throughput (e.g., 20K/sec)
+* Benchmark per-consumer throughput
+* Choose: `partitionCount = totalThroughput / consumerCapacity`
+* Allow headroom for scale-out
 
 ## Summary
 
