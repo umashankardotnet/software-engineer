@@ -455,3 +455,96 @@ Kafka pauses consumption, reassigns, and resumes.
 
 AWS MSK combines the power of Apache Kafka with the ease of AWS managed services. It’s a highly scalable and reliable solution for building event-driven, real-time applications using .NET or any other platform. Mastering Kafka/MSK and partition keys enables you to design systems with strong ordering guarantees, durability, and performance.
 
+# Use Case of Partitions
+
+## If I am taking pymentId as partition key and 1 million/sec request come with different paymentId then 1 million partitions will be there?
+No — **1 million partitions will *not* be created** just because you have 1 million unique `paymentId`s per second.
+
+Let’s break this down clearly:
+
+---
+
+### 🔹 Kafka Partitioning Logic (Reminder)
+
+Kafka **does NOT** create one partition per key.
+
+Instead, it uses a **fixed number of partitions per topic**, and then determines **which partition to send a message to** based on the key using this formula:
+
+```
+partition = hash(partitionKey) % numberOfPartitions
+```
+
+So if your topic has 100 partitions:
+
+* Kafka takes the `paymentId`, hashes it, and maps it to one of the 100 partitions.
+* Even if you get 1 million unique `paymentId`s per second, they will be **distributed across those 100 partitions**.
+
+---
+
+### 🔸 Example
+
+* You define:
+
+  ```bash
+  kafka-topics.sh --create --topic payment-events --partitions 100 ...
+  ```
+
+* You produce:
+
+  ```csharp
+  Key = paymentId // unique every time
+  ```
+
+* Kafka will:
+
+  * Hash each `paymentId`
+  * Route each message to one of the 100 partitions
+  * No new partitions are created dynamically
+
+---
+
+### ✅ Why This Is a Good Thing
+
+* You don’t want 1 million partitions — Kafka brokers and consumers would **choke**.
+* Partition count is a **scaling knob** you control — usually determined by throughput and parallelism needed.
+* **More partitions = more parallelism**, but also more metadata, replication overhead, and consumer complexity.
+
+---
+
+### 🔹 Then How Many Partitions Should You Have?
+
+That depends on:
+
+| Factor             | Rule of Thumb                                        |
+| ------------------ | ---------------------------------------------------- |
+| Target throughput  | \~1 MB/s or \~10,000 msgs/sec per partition          |
+| Consumer count     | One active consumer per partition                    |
+| Parallelism needed | Match to max expected concurrency                    |
+| Hardware capacity  | Keep under 20,000 partitions per broker cluster-wide |
+
+**Example:**
+If you expect 1 million events/second:
+
+* Target **\~1,000 to 5,000 partitions**
+* Deploy **1,000 to 5,000 consumer threads** (or more if using batching)
+
+---
+
+### 🔸 Important Notes
+
+* Kafka **doesn't auto-scale partitions** — you must define and manage them.
+* **More partitions ≠ always better**. Balance between:
+
+  * Throughput
+  * Latency
+  * Storage/replication cost
+  * Consumer complexity
+
+---
+
+### Summary
+
+> 🔹 Using `paymentId` as the partition key with 1 million messages/sec **does NOT create 1 million partitions**.
+> 🔹 Instead, **Kafka hashes the `paymentId` and maps it to one of the fixed partitions** (say, 1000).
+> 🔹 You decide the number of partitions when creating the topic based on desired **throughput and parallelism**.
+
