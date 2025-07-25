@@ -10,6 +10,7 @@ This guide explains everything you need to design and implement a complete **CQR
 | ------------------ | --------------------------------------------------------- |
 | **[CQRS](https://learn.microsoft.com/en-us/azure/architecture/patterns/cqrs)**           | Separates reads and writes for scalability and simplicity |
 | **[Event Sourcing](https://learn.microsoft.com/en-us/azure/architecture/patterns/event-sourcing)** | Persist state changes as a sequence of immutable events   |
+| **[Materialized View](https://learn.microsoft.com/en-us/azure/architecture/patterns/materialized-view)** | A materialized view built from events for fast reads   |
 
 ### What is CQRS?
 
