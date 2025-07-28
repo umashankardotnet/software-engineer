@@ -35,6 +35,13 @@ Below are some additional docs to read about scalability.
 - [distributed locking]()
 - [Cascading Failures](https://github.com/bhanu00/system-design/blob/main/cascading-failure.md)
 - [Polling Long vs Short]()
+- [Gossip Protocol]()
+- [Indexing]()
+- [Partition and Sharding]()
+- [Sparse Index]()
+- [Bloom Filters]()
+- [Consensus Algorithm]()
+- [Replication vs Redundancy]()
 
 - ### CDN
 - ### Edge Computing
