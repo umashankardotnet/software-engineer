@@ -272,3 +272,6 @@ public async Task<Product> GetProductAsync(int productId)
 | **Placement**         | Client, server, proxy, CDN, database.                        |
 | **Use Cases**         | API responses, static files, sessions, queries, rate limits. |
 | **Tools**             | Redis, Memcached, .NET MemoryCache, Varnish, CDN.            |
+
+## Good Article to read
+[Caching Strategies](https://codeahoy.com/2017/08/11/caching-strategies-and-how-to-choose-the-right-one/)
