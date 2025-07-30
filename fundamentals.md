@@ -95,6 +95,9 @@ Know more about Caching, Cache Hit, Cache Miss, Cache Invalidation Strategy
 - []
 ## [Some Good Engineering Blogs](https://interviewready.io/blog)
 
+##[Videos]()
+- Dos and Don't Do - https://www.youtube.com/watch?v=CtmBGH8MkX4
+
 ### Non Functional Requiremets
   To design a system, there are some non-functional requirements which helps to make decisions.
 - Letency
