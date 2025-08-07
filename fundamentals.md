@@ -43,6 +43,10 @@ Below are some additional docs to read about scalability.
 - [Consensus Algorithm]()
 - [Replication vs Redundancy]()
 - [Messaging Queue]()
+  - [Guarante Delivery]()
+  - [At least once / At most once]()
+  - [Ordering]()
+  - [Dead Lettering]
 - [Gateway]()
 - [Service Discovery]()
 
