@@ -332,7 +332,197 @@ public class Order
 }
 ```
 
+# Detailed Explanation of Liskov Substitution Principle (LSP)** 
+— what it is, why it matters, and how to follow it effectively in **C#**, with examples and real-world implications.
+
+
+## What is Liskov Substitution Principle?
+
+**Liskov Substitution Principle (LSP)** is the **"L"** in **SOLID** principles. It states:
+
+> **"Objects of a superclass should be replaceable with objects of a subclass without affecting the correctness of the program."**
+
+In other words:
+
+* If `class B` is a subclass of `class A`, then we should be able to use `B` **wherever** we use `A`—without breaking functionality.
+
+
+## Simple Definition
+
+> **Subtypes must behave like their parent types.**
+
+That means:
+
+* Subclasses must **honor the contract** of the base class or interface.
+* They **should not throw new exceptions**, **remove functionality**, or **change meaning** of existing behavior.
+
+
+## Realistic Example – LSP Followed
+
+```csharp
+public abstract class Bird
+{
+    public abstract void Fly();
+}
+
+public class Sparrow : Bird
+{
+    public override void Fly()
+    {
+        Console.WriteLine("Sparrow flies");
+    }
+}
+```
+
+Usage:
+
+```csharp
+Bird bird = new Sparrow();
+bird.Fly(); // Works fine
+```
+
+Sparrow behaves just like a Bird should.
+
 ---
+
+## ❌ Violation of LSP (Bad Subclassing)
+
+Now imagine:
+
+```csharp
+public class Ostrich : Bird
+{
+    public override void Fly()
+    {
+        throw new NotSupportedException("Ostrich cannot fly!");
+    }
+}
+```
+
+```csharp
+Bird bird = new Ostrich();
+bird.Fly(); // ❌ Runtime exception!
+```
+
+**Why this violates LSP:**
+
+* `Bird` promises `Fly()` will work.
+* `Ostrich` breaks that promise by throwing.
+* Any code depending on `Bird.Fly()` is now fragile and error-prone.
+
+
+## ✅ Refactored with Interface Segregation
+
+Split the design properly:
+
+```csharp
+public interface IBird { }
+
+public interface IFlyingBird : IBird
+{
+    void Fly();
+}
+
+public class Sparrow : IFlyingBird
+{
+    public void Fly() => Console.WriteLine("Sparrow flies");
+}
+
+public class Ostrich : IBird
+{
+    // Ostrich does not fly, no Fly() here
+}
+```
+
+Now:
+
+* No false promises.
+* LSP is preserved.
+* Code is more robust and flexible.
+
+---
+
+## C# Strategy Pattern Example (Correct Way)
+
+Instead of subclassing with different behaviors:
+
+```csharp
+public interface IShippingStrategy
+{
+    decimal CalculateShipping(Order order);
+}
+
+public class StandardShipping : IShippingStrategy
+{
+    public decimal CalculateShipping(Order order) => 5.00m;
+}
+
+public class ExpressShipping : IShippingStrategy
+{
+    public decimal CalculateShipping(Order order) => 15.00m;
+}
+
+public class FreeShipping : IShippingStrategy
+{
+    public decimal CalculateShipping(Order order) => 0.0m; // ✅ Safe, no surprises
+}
+```
+
+### Using it:
+
+```csharp
+Order order = new Order { OrderName = "Book" };
+IShippingStrategy shipping = new FreeShipping(); // or ExpressShipping
+
+var cost = shipping.CalculateShipping(order);
+```
+
+Each strategy honors the same contract — **no violations**.
+
+---
+
+## 🔥 Signs of LSP Violation
+
+Watch out for:
+
+| ❌ Pattern                                             | Why it's a problem                          |
+| ----------------------------------------------------- | ------------------------------------------- |
+| Subclass throws NotImplementedException               | You're lying about supporting base behavior |
+| Subclass returns unexpected values (null, -1)         | Breaks client expectations                  |
+| If statements like `if (obj is Subclass)`             | Violates polymorphism — fragile code        |
+| Overridden methods change behavior in surprising ways | Leads to bugs in consuming code             |
+
+---
+
+## Tips to Follow LSP
+
+| Principle                         | What to Do                                                              |
+| --------------------------------- | ----------------------------------------------------------------------- |
+| **Design by contract**            | Ensure all subclasses uphold the promises of their base                 |
+| **Use interfaces or composition** | Avoid inheriting behavior that doesn’t apply                            |
+| **Don't override just to throw**  | Redesign or segregate your abstraction                                  |
+| **Program to abstractions**       | Use interfaces to isolate behavior like flying, drawing, shipping, etc. |
+
+
+## Mental Model
+
+Think of LSP like this:
+
+> If `X` is a type, and `Y` is a subtype of `X`, you should be able to replace `X` with `Y` **and not know the difference**.
+
+---
+
+## Summary
+
+* ✅ **LSP ensures safe inheritance or interface implementation**
+* ❌ Violating LSP leads to fragile, error-prone code
+* ✅ Use **interface segregation** or **composition** when behaviors vary
+* ✅ Think from the **consumer’s perspective**: “Will this substitution surprise them?”
+
+---
+
+Would you like to see a **.NET application layer (Service, Controller, Strategy) example** that correctly applies LSP in real-world architecture?
+
 
 By following these principles, you can create maintainable, scalable, and robust .NET applications.
 
