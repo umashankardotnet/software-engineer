@@ -176,7 +176,181 @@ public class HomeController
 ✅ When the instance is **shared and expensive to create**.
 ❌ Avoid if you need multiple independent instances (overuse causes hidden dependencies).
 
+We mark a **Singleton class** as `sealed` in C# to make sure **nobody can inherit it**, which is important for keeping the **"only one instance" guarantee** intact.
+
 ---
 
-If you want, I can make you a **memory diagram** showing how Singleton in C# is stored and accessed internally — that will make the concept 100% clear.
-Do you want me to do that?
+## 🔹 Why `sealed` in Singleton?
+
+If the class wasn’t sealed:
+
+1. **Inheritance can break the Singleton guarantee**
+
+   * A derived class can have its own static instance, creating **multiple instances** across types.
+   * This violates the "only one instance" rule.
+
+2. **Security & Predictability**
+
+   * Prevents unexpected behavior due to subclass overrides.
+   * Keeps the Singleton lifecycle controlled and predictable.
+
+3. **Reflection + Inheritance combo risk**
+
+   * If another developer inherits your Singleton and exposes a public constructor, they could bypass the private constructor.
+
+---
+
+### 📌 Example: Singleton without `sealed` – Broken
+
+```csharp
+public class Singleton
+{
+    public static Singleton Instance { get; } = new Singleton();
+    protected Singleton() { }
+}
+
+public class ChildSingleton : Singleton
+{
+    public static new ChildSingleton Instance { get; } = new ChildSingleton();
+    private ChildSingleton() { }
+}
+
+class Program
+{
+    static void Main()
+    {
+        var parentInstance = Singleton.Instance;
+        var childInstance = ChildSingleton.Instance; // ❌ Now we have 2 instances!
+    }
+}
+```
+
+**Result:** Singleton guarantee broken.
+
+---
+
+### 📌 Correct: Singleton with `sealed`
+
+```csharp
+public sealed class Singleton
+{
+    public static Singleton Instance { get; } = new Singleton();
+    private Singleton() { }
+}
+```
+
+Now:
+
+* No class can inherit it.
+* Only **one** instance is possible.
+
+---
+
+✅ **In summary:**
+We use `sealed` in Singleton to **prevent inheritance**, which could create multiple instances and break the Singleton’s core purpose.
+
+---
+
+If you want, I can show you **how reflection can still break Singleton** unless we handle it — that’s another subtle Singleton trap in C#. Would you like me to?
+
+Alright — here’s the subtle trap with **Singleton + Reflection** in C#.
+
+Even if you mark a Singleton as **`sealed`** and make the constructor `private`, **reflection** can still create a new instance because it can bypass access modifiers.
+
+---
+
+## 🔹 Breaking Singleton with Reflection
+
+```csharp
+using System;
+using System.Reflection;
+
+public sealed class Singleton
+{
+    private static readonly Singleton _instance = new Singleton();
+    public static Singleton Instance => _instance;
+
+    private Singleton()
+    {
+        Console.WriteLine("Singleton constructor called");
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        var instance1 = Singleton.Instance;
+
+        // Bypass private constructor using reflection
+        ConstructorInfo ctor = typeof(Singleton).GetConstructor(
+            BindingFlags.Instance | BindingFlags.NonPublic,
+            null,
+            Type.EmptyTypes,
+            null
+        );
+
+        var instance2 = (Singleton)ctor.Invoke(null);
+
+        Console.WriteLine(instance1 == instance2 
+            ? "Same instance" 
+            : "Different instance ❌ Singleton broken");
+    }
+}
+```
+
+---
+
+### **Output**
+
+```
+Singleton constructor called
+Singleton constructor called
+Different instance ❌ Singleton broken
+```
+
+💡 Even though the Singleton is `sealed`, Reflection **doesn’t care** about inheritance rules — it just calls the private constructor.
+
+---
+
+## 🔹 How to Protect Singleton from Reflection
+
+We can **add a guard** inside the constructor to throw an exception if someone tries to create a second instance.
+
+```csharp
+public sealed class Singleton
+{
+    private static bool _isInstanceCreated = false;
+    private static readonly Singleton _instance = new Singleton();
+    public static Singleton Instance => _instance;
+
+    private Singleton()
+    {
+        if (_isInstanceCreated)
+        {
+            throw new InvalidOperationException("Cannot create multiple instances of Singleton");
+        }
+        _isInstanceCreated = true;
+        Console.WriteLine("Singleton instance created");
+    }
+}
+```
+
+Now if Reflection tries to create a new instance:
+
+```
+InvalidOperationException: Cannot create multiple instances of Singleton
+```
+
+---
+
+## 🔹 Extra Note – Dependency Injection
+
+In ASP.NET Core, singletons are usually managed by the **DI container** (e.g., `AddSingleton()`), which handles lifetime and avoids reflection issues in normal scenarios.
+The reflection problem mainly arises in **low-level libraries or utility classes** where you manually control instance creation.
+
+---
+
+If you want, I can also show **how serialization can break Singleton** and how to fix it — because that’s another sneaky edge case many developers miss.
+Do you want me to go into that?
+
