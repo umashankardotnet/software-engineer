@@ -183,39 +183,103 @@ for (int end = 0; end < arr.Length; end++)
 }
 ```
 
+### Variable Size Sliding Window
+Gotcha — this is the **Longest Substring Without Repeating Characters** problem (LeetCode #3) and we can solve it using the **variable-size sliding window** pattern.
+
+
+### **Problem**
+
+Given:
+
+```
+"abcdfgsdbastyuiop"
+```
+
+We want the **length** (and optionally the substring) of the longest stretch of characters without any repetition.
+
 ---
 
-### Visual: Sliding Window (Variable)
+### **Approach — Variable Size Sliding Window**
 
-#### Problem: Longest substring without repeating characters
+We maintain:
 
-```
-String: "abcabcbb"
-Valid Window grows until repeat, then shrinks:
+* **`start` pointer** → beginning of current window
+* **`end` pointer** → moves forward character by character
+* **Dictionary/HashMap** → to store last index of each character
+* If a character repeats → move `start` **right after** the last occurrence of that character.
 
-Step-by-step:
-Window = "a"
-Window = "ab"
-Window = "abc" ✅
-Then 'a' repeats → shrink from left
-```
+---
+
+### **C# Implementation**
 
 ```csharp
-string s = "abcabcbb";
-int maxLength = 0, left = 0;
-HashSet<char> set = new HashSet<char>();
+using System;
+using System.Collections.Generic;
 
-for (int right = 0; right < s.Length; right++)
+class Program
 {
-    while (set.Contains(s[right]))
+    static void Main()
     {
-        set.Remove(s[left]);
-        left++;
+        string s = "abcdfgsdbastyuiop";
+        var result = LongestUniqueSubstring(s);
+        Console.WriteLine($"Length: {result.length}, Substring: \"{result.substring}\"");
     }
-    set.Add(s[right]);
-    maxLength = Math.Max(maxLength, right - left + 1);
+
+    static (int length, string substring) LongestUniqueSubstring(string s)
+    {
+        Dictionary<char, int> lastSeen = new Dictionary<char, int>();
+        int start = 0, maxLength = 0, startIndexOfMax = 0;
+
+        for (int end = 0; end < s.Length; end++)
+        {
+            char current = s[end];
+
+            // If character seen before and inside current window → shrink from start
+            if (lastSeen.ContainsKey(current) && lastSeen[current] >= start)
+            {
+                start = lastSeen[current] + 1;
+            }
+
+            lastSeen[current] = end; // Update last seen index
+
+            // Update max if needed
+            if (end - start + 1 > maxLength)
+            {
+                maxLength = end - start + 1;
+                startIndexOfMax = start;
+            }
+        }
+
+        return (maxLength, s.Substring(startIndexOfMax, maxLength));
+    }
 }
 ```
+
+---
+
+### **Dry Run — `"abcdfgsdbastyuiop"`**
+
+We slide `end` forward:
+
+1. `abcdfgs` → length = 7 (all unique so far)
+2. At `d` (index 7) → already seen at index 3 → move `start` to index 4
+   Window now `"fgsd"` (length 4)
+3. Keep sliding → `"dbastyuiop"` at one point → length = **10** (final answer)
+
+**Result:**
+
+```
+Length: 10  
+Substring: "dbastyuiop"
+```
+
+---
+
+### **Complexity**
+
+* **Time:** O(n) → each char visited at most twice
+* **Space:** O(k) → k = number of unique chars in window (at most character set size)
+
 
 ## Relationship: Two Pointer vs Sliding Window
 
