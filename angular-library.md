@@ -5,7 +5,7 @@ Creating reusable libraries in Angular involves several steps, from generating t
 ---
 
 ### **1. Generate a Library**
-Angular provides a built-in command to create a library:
+Angular provides a built-in command to create a library-
 
 ```bash
 ng generate library library-name
