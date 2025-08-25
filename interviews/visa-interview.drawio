@@ -1,0 +1,140 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0" version="28.0.6" pages="3">
+  <diagram name="Page-1" id="Gd134foXgl_35mFHvIV3">
+    <mxGraphModel dx="1884" dy="544" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="x8LoQyerUL4XZJAgcFrb-1" value="Continuous&amp;nbsp; events&amp;nbsp; (Streams) Kafka/Kinesis&lt;div&gt;Producecer&lt;/div&gt;&lt;div&gt;Consumer&lt;/div&gt;&lt;div&gt;&amp;nbsp;Function R - busineess logic (&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Process the information&lt;/div&gt;&lt;div&gt;Send th message/Email/Push - Customer&lt;/div&gt;&lt;div&gt;)&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Scalable&lt;/div&gt;&lt;div&gt;Resiliant&lt;/div&gt;&lt;div&gt;Highly Available&lt;/div&gt;&lt;div&gt;Fault Tolerant&lt;/div&gt;&lt;div&gt;Operations ()&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="580" y="10" width="260" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="x8LoQyerUL4XZJAgcFrb-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="x8LoQyerUL4XZJAgcFrb-2" target="x8LoQyerUL4XZJAgcFrb-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="x8LoQyerUL4XZJAgcFrb-2" value="Payment Platofrm&lt;div&gt;ECS (Containerization) Backend&lt;/div&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-70" y="160" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="x8LoQyerUL4XZJAgcFrb-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="x8LoQyerUL4XZJAgcFrb-3" target="x8LoQyerUL4XZJAgcFrb-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="x8LoQyerUL4XZJAgcFrb-3" value="Kafka&amp;nbsp;&lt;div&gt;Topic / Kinesis Stream (Partions/Shard)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="160" y="140" width="120" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="x8LoQyerUL4XZJAgcFrb-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="x8LoQyerUL4XZJAgcFrb-5" target="x8LoQyerUL4XZJAgcFrb-8">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="420" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x8LoQyerUL4XZJAgcFrb-5" value="Payment Consumer Prcessed Service Multi-AZ/Multi Region" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="425" y="130" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="x8LoQyerUL4XZJAgcFrb-8" value="SNS - send/ Amaxon Email email/Push" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="353" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="x8LoQyerUL4XZJAgcFrb-9" value="Monitoring&lt;div&gt;Load Balncing&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="600" y="313" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="x8LoQyerUL4XZJAgcFrb-10" value="High throughput&lt;div&gt;Replay&lt;/div&gt;&lt;div&gt;Event Storage&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="160" y="240" width="110" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="x8LoQyerUL4XZJAgcFrb-11" value="Dead letter Queue" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="210" y="380" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="x8LoQyerUL4XZJAgcFrb-12" value="Multi/AZ/Multi Regision" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="410" y="98" width="150" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="x6vI_g4WfG1lICjdwcSC" name="Page-2">
+    <mxGraphModel dx="1034" dy="544" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Fe4JJPFdZJQAJfIT-2jR-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Fe4JJPFdZJQAJfIT-2jR-2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="500" y="190" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Fe4JJPFdZJQAJfIT-2jR-2" value="Device Request {&lt;div&gt;DeviceId,&lt;/div&gt;&lt;div&gt;&quot;Time stamps,, Certificate&lt;/div&gt;&lt;div&gt;}&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="190" y="160" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Fe4JJPFdZJQAJfIT-2jR-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Fe4JJPFdZJQAJfIT-2jR-4">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="730" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Fe4JJPFdZJQAJfIT-2jR-4" value="Messaging Server" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="505" y="160" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Fe4JJPFdZJQAJfIT-2jR-5" value="Windows EC2 instance" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="485" y="218" width="150" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Fe4JJPFdZJQAJfIT-2jR-6" value="SHA256" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="725" y="175" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Fe4JJPFdZJQAJfIT-2jR-7" value="Windows Registry" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="680" y="230" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Fe4JJPFdZJQAJfIT-2jR-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Fe4JJPFdZJQAJfIT-2jR-9" target="Fe4JJPFdZJQAJfIT-2jR-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Fe4JJPFdZJQAJfIT-2jR-9" value="ACM (Certificate Manager)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="505" y="320" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Fe4JJPFdZJQAJfIT-2jR-10" value="Imported Certficates" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="500" y="380" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Fe4JJPFdZJQAJfIT-2jR-11" value="Containerization" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="660" y="360" width="250" height="90" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="VclyZOwCnRAF7ubUtroH" name="test-pg">
+    <mxGraphModel dx="1034" dy="544" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="udGIH96o_v4T4LQR71GR-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="udGIH96o_v4T4LQR71GR-1" target="udGIH96o_v4T4LQR71GR-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="udGIH96o_v4T4LQR71GR-1" value="Transaction Service" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="190" width="80" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="udGIH96o_v4T4LQR71GR-3" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Payment Gateway&lt;/h1&gt;&lt;p&gt;&lt;/p&gt;&lt;ol&gt;&lt;li&gt;Authorize (Check customer account has money, )&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Capture (Hold the money in customer Account)&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Settlement - money transfer from customer to merchant or vice/versa&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;&lt;div&gt;&lt;ul&gt;&lt;li&gt;&lt;span style=&quot;text-align: center; text-wrap-mode: nowrap;&quot;&gt;1 Events = 1 KB =&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;text-align: center; text-wrap-mode: nowrap; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;1 m req /sec =&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;text-align: center; text-wrap-mode: nowrap; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;1000MB = 1 GB/sec&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;text-align: center; text-wrap-mode: nowrap; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;1 partition = 10 MB then 100 partitions we need&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;text-align: center; text-wrap-mode: nowrap; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Partition key = transactionId,&amp;nbsp;&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;text-align: center; text-wrap-mode: nowrap; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Target partition = Hash(PartitionKey)%no of partition&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;text-align: center; text-wrap-mode: nowrap; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;1 consumer = 1 or more partitions&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/p&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="600" y="40" width="340" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="udGIH96o_v4T4LQR71GR-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="udGIH96o_v4T4LQR71GR-4" target="udGIH96o_v4T4LQR71GR-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="udGIH96o_v4T4LQR71GR-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="udGIH96o_v4T4LQR71GR-4" target="udGIH96o_v4T4LQR71GR-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="udGIH96o_v4T4LQR71GR-4" value="Kafka" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="175" width="90" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="udGIH96o_v4T4LQR71GR-6" value="Payment&amp;nbsp;&lt;div&gt;initiated events&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="155" y="235" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="udGIH96o_v4T4LQR71GR-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="udGIH96o_v4T4LQR71GR-8" target="udGIH96o_v4T4LQR71GR-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="udGIH96o_v4T4LQR71GR-8" value="Transaction Capture Service" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="100" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="udGIH96o_v4T4LQR71GR-9" value="Settlement Service" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="250" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="udGIH96o_v4T4LQR71GR-12" value="Payment Processor" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="300" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="udGIH96o_v4T4LQR71GR-14" value="" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+          <mxGeometry x="330" y="380" width="60" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="udGIH96o_v4T4LQR71GR-15" value="Data Residency&lt;div&gt;Encryption at REST/Transit&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="280" y="470" width="170" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
