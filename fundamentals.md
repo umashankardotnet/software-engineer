@@ -113,5 +113,8 @@ Know more about Caching, Cache Hit, Cache Miss, Cache Invalidation Strategy
 
 Make a proper plan to become master in System Design, Make this schedule topic wise then complexity wise. Basic system Design topics are available every where so make it with proper AWS and Microsoft Blogs reference , for example ([Disaster Recovery (DR) Architecture on AWS](https://aws.amazon.com/blogs/architecture/disaster-recovery-dr-architecture-on-aws-part-i-strategies-for-recovery-in-the-cloud/)). Post 1 topic with (summary and example) daily on Linkedin once this system design is almost complete and  focus should be more on System design instead of DSA. For senior positions System Design, HLD, LLD matters. and provide some examples as well like How netflix scaled his system, etc.
 
-## Good System Design Examples
+## Good To know before jumping to System Design
+- [Google India Engineers in a Mock System Design Interview](https://www.youtube.com/watch?v=S1DvEdR0iUo)
+
+## System Design Mocks
 - [Exponent - System Design Interview: Design Amazon Prime Video](https://www.youtube.com/watch?v=PuU_0esYyhg)

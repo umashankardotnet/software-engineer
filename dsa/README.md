@@ -1,12 +1,14 @@
 # DSA (Data Structures, Algorithms and Problem Solving)
 This repository contains resources for Data structures, algorithms and Problem solving. Here, we are providing a learning schedule day wise in a sequence so that it won't confuse the readers from where they should start.
 
-# Disclaimer
+## Disclaimer
 The content reffered in this repository belongs to the respected site owners.
 
 Provide links for DSA resoures day wise and provide some usage , for example in which scenarios you can use linkedList.
 ## DSA - Data Structures & Algorithms
-### Good to visit before starting DSA
+
+### Good to visit before jumping to Coding Problems
+- [Google India Engineers in a Mock Coding Interview](https://www.youtube.com/watch?v=21pmwl0hrME)
 - [How I mastered DSA by Ashish](https://blog.algomaster.io/p/how-i-mastered-data-structures-and-algorithms)
 - [Video - How I mastered DSA by Ashish](https://www.youtube.com/watch?v=F-ao3Q6I2Fc)
 
