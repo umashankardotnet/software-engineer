@@ -148,5 +148,114 @@ This role requires strong technical expertise combined with leadership abilities
 
 	Round 3 (Director): LP questions with current project details on how you lead the project to completion and how you handled 	failures, mentoring etc.
 
+   # SMTS Interview Process
+
+   Based on the interview reviews, here's a detailed breakdown of the key technical questions and topics for Senior Member of Technical Staff (SMTS) position at Salesforce:
+
+### DSA (Data Structures & Algorithms) Questions
+
+1. **Array Problems**:
+   - Rotation of sorted arrays
+   - Maximum sum with non-adjacent elements
+   - Finding lexicographically smallest subsequence
+   - Interval problems
+
+2. **String Manipulation**:
+   - Finding anagrams in a list/sentence
+   - Integer to Roman conversion
+   - Finding substring with max value with repeating characters
+
+3. **Tree Problems**:
+   - Level order traversal
+   - Validation of BST from post-order traversal
+   - Binary tree construction and traversal questions
+
+4. **Graph Problems**:
+   - Number of Islands in matrix
+   - Path finding problems
+   - BFS/DFS implementations
+
+### Low Level Design (LLD) Questions
+
+1. **System Components**:
+   - Design a command line processor
+   - Design iPod shuffle functionality
+   - Design a file system
+   - Design a parking lot system
+   - Design API rate limiter
+
+2. **Game/Application Design**:
+   - Design Snake and Ladder game
+   - Object-oriented design patterns implementation
+   - API design for Inventory systems
+
+### High Level Design (HLD) Questions
+
+1. **Large Scale Systems**:
+   - Design BookMyShow
+   - Design Facebook Messenger
+   - Design an auction/bidding system
+   - Design data ingestion and reporting system
+   - Design scalable database systems
+
+2. **Distributed Systems**:
+   - Caching implementations
+   - Load balancing strategies
+   - Kafka-based systems
+   - Handling concurrent requests
+
+### Problem Solving Questions
+
+1. **Dynamic Programming**:
+   - Coin change problems
+   - Maximum path sum in matrix
+   - Longest increasing subsequence
+   - Phone pad combinations
+
+2. **Database & SQL**:
+   - Different types of joins
+   - Query optimization
+   - Database schema design
+   - Complex SQL queries
+
+### System Design Considerations
+
+1. **Scalability**:
+   - Handling high volume data
+   - Performance optimization
+   - Load distribution
+   - Caching strategies
+
+2. **Reliability**:
+   - Error handling
+   - Failover mechanisms
+   - Data consistency
+   - Transaction management
+
+### Additional Technical Topics
+
+1. **Core Concepts**:
+   - Multithreading and synchronization
+   - Memory management
+   - Concurrency handling
+   - REST API design patterns
+
+2. **Language-Specific**:
+   - Java: Collections, Threading, Memory management
+   - Python: GIL, Data structures
+   - JavaScript: Prototypal inheritance
+   - Database concepts and ACID properties
+
+### Tips for Preparation:
+1. Focus on medium-level LeetCode problems
+2. Practice system design for both small and large-scale systems
+3. Be prepared to write clean, testable code
+4. Understand scaling and performance optimization
+5. Know how to handle edge cases and error scenarios
+6. Be ready to discuss trade-offs in design decisions
+7. Practice explaining technical solutions clearly
+
+This role requires strong technical depth across multiple areas, so thorough preparation in all these aspects is important for success in the interview process.
+
 
 
