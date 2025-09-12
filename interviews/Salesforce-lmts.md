@@ -89,3 +89,64 @@ Based on the interview reviews, here's a comprehensive guide to prepare for the 
 - Technical depth and breadth
 
 This role requires strong technical expertise combined with leadership abilities, so prepare accordingly across all these areas.
+
+## Good interview Discussions
+- https://leetcode.com/discuss/post/4973910/salesforce-lmts-interview-by-anonymous_u-h12k/
+- https://leetcode.com/discuss/post/4312326/salesforce-smtslmts-by-anonymous_user-3pd5/
+
+## Some specific questions
+### Coding:
+
+	One question was related to Strings and Array manipulation, I would say leetcode medium, second question was related to graph, which 	was very difficult. 75 min is given to complete the test.
+
+	Add and Search Word
+
+	[DS-Algo] One DS algo problem which can be solved using priority queue. Never heard about the problem but it was easy one
+
+	[DS-Algo] Complete multiple linked list operations without extra space and without swpping data. The operations were expected to 	be done by using pointers/references only
+
+	find greatest number by swapping adjacent digits of same parity (odd-odd/even-even)
+	something with marketing campaign management. (simple DP problem)
+	
+	print all paths from top-left corner to bottom-right corner.
+	
+	evaluate expression; calculator-III
+
+	Graph based
+
+	Round 1 (DSA): Given a matrix with positive weights and -1(block, cannot move). Find maximum weight path such that no path exists 	after the last reachable block. Movement is possible in all 8 possible directions.
+
+### Design:(HLD + LLD)
+	Discussion on current project architectire
+	Design Tagging System
+	Design Social Media Comments, Likes, Follow
+	Design Airflow
+	Design Netflix recommendations
+
+### HLD:
+	Design a URL shortening service with multiple requirements from different internal teams.
+
+	[HLD] Design a data model for News Feed system and how can we optimise get feed API response time
+
+	Design rule engine for banking system; like if salary is X and account is 10 years old; user should be given Z % discount.
+
+	Round 4 (HLD): Design chat service.
+
+### LLD:
+	A usecsae to refactor and have extension on existing code base. A Solution was expected to adhere a design patter and have it open 	for extension.
+
+	Design stackoverflow.He asked me to design schema for it. wrote code for it as well. Then he asked about search functionality. He 	wanted me to write code for how elastic search does the searching; in particular what data structure it uses [LSM tree etc.]
+
+	Round 2 (LLD): Design Snake & Ladder Game with working solution to be run on the platform. Focus was on design patter, use of 	classes, execution.
+
+### HM Round:
+	Situational Questions
+	Team Motivations
+	Maintaining Escalations
+	Best practices for maintaining quality
+	Discussion on responsibilities, how you prioratise tasks, how you handle conflicts in the discussion, how you mentor and groom 	your subordinates.
+
+	Round 3 (Director): LP questions with current project details on how you lead the project to completion and how you handled 	failures, mentoring etc.
+
+
+
