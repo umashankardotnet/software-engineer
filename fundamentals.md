@@ -49,6 +49,7 @@ Below are some additional docs to read about scalability.
   - [Dead Lettering]
 - [Gateway]()
 - [Service Discovery]()
+- [Change Data Capture]()
 
 - ### CDN
 - ### Edge Computing
