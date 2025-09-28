@@ -49,3 +49,5 @@ To continue on algorithms visit all links mentioned in below screnshot one by on
 
 # [Ashish Pratap Repo](https://github.com/ashishps1/awesome-leetcode-resources?tab=readme-ov-file)
 # [Strivers-a2z-dsa-course-sheet-2](https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2)
+
+[Algorithms](https://www.youtube.com/watch?v=aGjL7YXI31Q&list=PLEbnTDJUr_IeHYw_sfBOJ6gk5pie0yP-0)
