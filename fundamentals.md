@@ -119,3 +119,8 @@ Make a proper plan to become master in System Design, Make this schedule topic w
 
 ## System Design Mocks
 - [Exponent - System Design Interview: Design Amazon Prime Video](https://www.youtube.com/watch?v=PuU_0esYyhg)
+
+## Last minute URLs
+- https://learn.microsoft.com/en-us/dotnet/architecture/cloud-native/resilient-communications
+- https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-app-platform
+- https://learn.microsoft.com/en-us/dotnet/architecture/cloud-native/
