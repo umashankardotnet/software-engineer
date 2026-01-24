@@ -12,6 +12,10 @@ Below are the resources for Architectural patterns
 - [Backends for Frontends Pattern (BFF)]
 - [Circuit Breaker Pattern]
 - [Service Discovery Pattern]
+Client side
+Consul client, Netflix Eureka/Steeltoe, `Microsoft.Extensions.ServiceDiscovery` + resolvers, .NET Aspire client
+Server side
+  YARP (as reverse proxy), Kubernetes Ingress/Service, Traefik, Envoy, Azure API Management, AWS ALB + App Mesh
 - [Bulkhead Pattern]
 - [Retry Pattern]
 - [Sidecar Pattern]
