@@ -1,0 +1,47 @@
+MoveHome Feature
+Amazon API Gateway
+Front door for any incoming requests (e.g., a customer or agent starts a CoM via a portal/app).
+Amazon SNS (Simple Notification Service) → Pub/Sub messaging  "Fan-out" events: One thing happens → many services get notified instantly.  
+Reliable delivery, even if a service is busy or down temporarily.
+
+Amazon SQS (Simple Queue Service) → Queues (especially FIFO for order-critical steps)  Buffers messages so services process at their own speed.  
+Automatic retries if something fails (e.g., external system like CSS is slow).  
+Dead-letter queues catch permanent failures for manual review.
+
+AWS Lambda  Lightweight, quick functions for simple steps (e.g., validate data, transform events, call small APIs).  
+Runs only when needed → cheap and fast.
+
+AWS Step Functions  Orchestrates long/complex workflows (the "sagas").  
+Handles sequences like: Step 1 → if OK then Step 2 → if fail then rollback/compensation.  
+Can run for hours/days (e.g., waiting for manual approval or external response).  
+Built-in error handling, retries, timeouts.
+
+Databases  Amazon DynamoDB (fast NoSQL) → for quick reads/writes of temporary state, customer snapshots, event logs.  
+Amazon RDS (PostgreSQL) → for core transactional data that needs strong consistency (bills, contracts).  
+Event sourcing/CQRS in places: Store "what happened" as events, build current view on-the-fly.
+
+Security & Observability  Amazon Cognito + IAM roles → secure auth and least-privilege access.  
+Encryption everywhere (at rest + in transit).  
+Amazon CloudWatch + AWS X-Ray → logging, metrics, tracing every step for audits and debugging.  
+Full audit trails for Ofgem/regulatory compliance.
+
+Main Types of Events (in simple terms)Events are just short messages saying "something happened". Examples in a CoM flow:CustomerInitiatedCoM → "User requested switch from credit to prepayment"
+CreditCheckRequested → Sent to credit service
+CreditCheckCompleted → With pass/fail + details
+MeterReadRequested → To smart meter/ECOES service
+MeterReadReceived → Actual reading arrived
+SwitchValidated → All checks passed
+BillingAdjustmentCalculated → New bill/debt/credit amounts
+MarketSwitchSubmitted → Sent to CSS (central switching service)
+SwitchConfirmedByMarket → CSS says "approved"
+CoMCompleted → Final success → trigger welcome email, final bill
+FailureDetected → e.g., "Timeout waiting for meter read" → triggers rollback events like CompensationAdjustmentNeeded, NotifyCustomerOfDelay
+
+How It Flows (high-level example)API Gateway receives request → triggers Lambda → publishes CustomerInitiatedCoM event to SNS.
+SNS fans out to multiple SQS queues (one per interested microservice).
+Each service picks up event from its queue → does its job → publishes next event(s) (success or failure).
+For long sequences (e.g., wait for external CSS response): Step Functions coordinates the steps, waits, retries, or runs compensation if needed.
+All events logged → DynamoDB for fast queries, CloudWatch for monitoring.
+
+This setup makes the system fast (async, no waiting), resilient (retries, decoupling), scalable (handles thousands of switches/day), and auditable (every step traceable). It avoids the old problem of one slow external call blocking everything.
+
