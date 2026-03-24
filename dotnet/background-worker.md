@@ -48,6 +48,8 @@ These are fundamental services for building decoupled, scalable, and resilient d
           * **FIFO (First-In-First-Out) Queues:** Guarantee "exactly-once" processing and strict message ordering. Lower throughput than Standard queues. Ideal for scenarios where order and uniqueness are critical (e.g., financial transactions). Requires a `MessageGroupId`.
       * **Long Polling:** A mechanism where a `ReceiveMessage` request waits for messages to arrive for up to 20 seconds before returning. This reduces the number of empty responses and API calls, saving costs and improving efficiency.
 
+* Short polling uses frequent, periodic requests, making it simple but inefficient due to high traffic. Long polling keeps requests open until new data is available, reducing latency and network traffic, making it better for near real-time apps.
+  
 ### 2.2 Amazon SNS (Simple Notification Service)
 
   * **What it is:** A fully managed pub/sub messaging service. It allows you to send messages to a topic, and all subscribers to that topic receive the message.
